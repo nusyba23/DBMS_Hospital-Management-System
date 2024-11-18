@@ -1,5 +1,3 @@
-# DBMS_Hospital-Management-System
-
 # **DBMS_Hospital-Management-System** 🏥
 
 ---

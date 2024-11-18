@@ -46,9 +46,3 @@ It includes features such as **user account management**, **appointment scheduli
 
 ---
 
-## **🚀 How to Get Started**
-
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/your-username/hospital-management-system.git
-   cd hospital-management-system

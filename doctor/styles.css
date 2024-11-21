@@ -1,0 +1,93 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #E9E4E4;
+    padding: 20px;
+    width: 400px;
+    margin: auto;
+    height: 450px;
+    border-radius: 20px;
+}
+
+.heading-container {
+    background-color: #D4D4D4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 90%;
+    margin-bottom: 20px; 
+    border-radius: 10px;
+}
+
+.login-title {
+    font-size: 24px;
+    color: black;
+    font-family: Cairo, sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+.login-subtitle {
+    font-size: 14px;
+    color: black;
+    font-weight: bold;
+    font-family: Cairo, sans-serif;
+    text-align: center;
+    margin-top: -10px; 
+}
+
+.login-form {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+}
+
+.txt {
+    color: black;
+    font-family: Cairo, sans-serif;
+    font-size: 14px;
+    align-self: flex-start;
+    margin-left: 5%;
+    margin-bottom: 5px;
+}
+
+input[type="text"], input[type="password"] {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.sign-in-button, .register-button {
+    width: 90%;
+    padding: 10px;
+    background-color: black;
+    color: #fff;
+    font-family: Cairo, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.sign-in-button:hover, .register-button:hover{
+    transform: scale(1.05);
+}
+
+.new-emp-link {
+    color: black;
+    font-family: Cairo, sans-serif;
+    font-size: 12px;
+    text-decoration: none;
+    margin-top: 10px;
+}
+

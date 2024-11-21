@@ -1,0 +1,102 @@
+.login-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #E9E4E4;
+    padding: 20px;
+    position: relative;
+    top: 80px;
+    width: 400px;
+    height: 530px;
+    margin: auto;
+    border-radius: 20px;
+}
+
+.login-title{
+    font-size: 24px;
+    color: black;
+    font-family: Cairo, sans-serif;
+    font-weight: bold;
+    margin-bottom: 10px;
+    align-items: center;
+    text-align: center;
+}
+
+.sub-title{
+    font-size: 24px;
+    color: black;
+    font-family: Cairo, sans-serif;
+    font-weight: bold;
+    margin-bottom: 10px;
+    align-items: center;
+    text-align: center;
+    margin-left: 147px;
+}
+
+.login-subtitle{
+    font-size: 16px;
+    color: black;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-family: Cairo, sans-serif;
+}
+.heading-container{
+    background-color: #DEDBDB;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #D4D4D4; /* Adjust to your desired color */
+    padding: 20px;
+    width: 70%;
+    margin-bottom: 20px;
+    border-radius: 20px;
+}
+
+.option-container{
+    display: flex;
+    gap:20px;
+    background-color: #EFEFEF;
+    width: 250px;
+    height: 270px;
+    flex-direction:row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    margin-left: 80px;
+
+}
+.login-form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: #EFEFEF;
+    border-radius: 20px;
+}
+
+.employee-button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 95px;
+    height: 150px;
+    background-color: #B0D1D4;
+    font-size: 18px;
+    font-family: Cairo, sans-serif;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 20px;
+    border-color: #B0D1D4;
+
+}
+.employee-button:hover{
+    transform: scale(1.05);
+}
+.icon-img{
+    width: 40px;
+    height: 40px;
+    margin-bottom: 15px;
+}

@@ -7,8 +7,9 @@
     padding: 20px;
     width: 400px;
     margin: auto;
-    height: 450px;
+    height: 500px;
     border-radius: 20px;
+    overflow: hidden;
 }
 
 .heading-container {
@@ -40,11 +41,12 @@
 }
 
 .login-form {
-    width: 90%;
+    width: 100%; 
+    max-width: 400px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    color: black;
+    align-items: center; 
+    gap: 15px;
 }
 
 .txt {
@@ -52,8 +54,8 @@
     font-family: Cairo, sans-serif;
     font-size: 14px;
     align-self: flex-start;
-    margin-left: 5%;
     margin-bottom: 5px;
+    font-weight: bold;
 }
 
 input[type="text"], input[type="password"] {
@@ -65,21 +67,27 @@ input[type="text"], input[type="password"] {
     font-size: 14px;
 }
 
-.sign-in-button, .register-button {
-    width: 90%;
-    padding: 10px;
+.register-button {
     background-color: black;
-    color: #fff;
+    color: white;
     font-family: Cairo, sans-serif;
     font-size: 16px;
     font-weight: bold;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
+    width: 100%; /* Adjust to fit the form */
+    text-align: center;
+    border-radius: 20px;
+    height: 40px;
     margin-top: 10px;
+    border: none;
+    cursor: pointer;
 }
 
-.sign-in-button:hover, .register-button:hover{
+.Gender-option{
+    display: flex;
+    flex-direction: row;
+}
+
+.register-button:hover{
     transform: scale(1.05);
 }
 

@@ -208,3 +208,42 @@ input[type="text"], input[type="password"] {
     position:fixed;
     right: 685px;
 }
+
+#save{
+    display: none;
+    transition: opacity 0.5s ease;
+    opacity: 0;
+}
+
+#save.show {
+    display: block; 
+    opacity: 1;
+    font-family: Cairo, sans-serif;
+    background-color: #B0D1D4;
+    color: #000;
+    border-radius: 20px;
+    font-weight: bold;
+    position:static;
+    right:600px;
+    top:600px;
+    height: 35px;
+    margin-top: 25px;
+    width:150px;
+    text-align: center;
+    
+}
+.basic-details{
+    font-family: Cairo, sans-serif;
+    float:right;
+    margin-right: 700px;
+    padding: 20px;
+}
+.medical-record{
+    font-family: Cairo, sans-serif;
+    float:left;
+}
+.patient-image{
+    width: 263px;
+    height: 285px;
+    padding: 20px;
+}

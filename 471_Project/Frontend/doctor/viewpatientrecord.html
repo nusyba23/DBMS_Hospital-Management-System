@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Record</title>
+</head>
+<body>
+    <div class="p-photo">
+        <img class="patient-image" src="../images/patient.png" alt="Picture of patient">
+    
+    
+    <div class="basic-details" onclick="startEdits()">
+        <h3>Patient Name: </h3>
+        <h5>Patient ID: </h5>
+
+        <p>Gender: </p>
+        <p>DOB: </p>
+        <p>Room: </p>
+        <button id="save" class="save-button" onclick="saveDetails()">Save Changes</button>
+    </div>
+</div>
+    <br>
+    <div class="medical-record" onclick="startEdits()">
+        <p>Weight: X kg</p>
+        <p>Height: X cm</p>
+        <p>Current Medications: </p>
+        <p>Allergies: </p>
+        <p>Recent Immunizations: </p>
+        <button id="save" class="save-button" onclick="saveDetails()">Save Changes</button>
+    </div>
+<br>
+    <div class="test-record">
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

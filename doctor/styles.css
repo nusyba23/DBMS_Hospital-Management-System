@@ -91,3 +91,109 @@ input[type="text"], input[type="password"] {
     margin-top: 10px;
 }
 
+.doctor-action{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    width: 171px;
+    height: 246px;
+    background-color: #B0D1D4;
+    font-size: 18px;
+    font-family: Cairo, sans-serif;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 20px;
+    border-color: #B0D1D4;
+    font-weight: bold;
+}
+.doctor-action:hover{
+    transform: scale(1.05);
+}
+.icon-img{
+    width: 108px;
+    height: 108px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    align-items: center;
+}
+.hospital-details{
+    font-family: Cairo, sans-serif;
+}
+.title{
+    font-family: Cairo, sans-serif;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+
+}
+.action-buttons{
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: center;
+    gap: 162px;
+    
+}
+.body{
+    background-color: #E9E4E4;
+    height: 100%;
+    font-family: Cairo, sans-serif;
+    flex-direction: column;      
+}
+.search {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .search-bar-container {
+    position: relative;
+    width: 500px;
+  }
+  
+  .query {
+    width: 500px;
+    padding: 10px 40px 10px 20px;  
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+  
+  button {
+    all: unset;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: 10px; 
+    transform: translateY(-50%);
+  }
+  
+  svg {
+    width: 20px;
+    height: 20px;
+    color: #000;
+  }
+  .result{
+    font-family: Cairo, sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    display: flex;
+    flex-direction:  row;
+    justify-content: centerxs; 
+    align-items: center; 
+    margin-top: 20px;
+    gap: 10px;
+    width: 100%; 
+}
+
+.choose-patient {
+    background-color: #B0D1D4;
+    border-radius: 20px;
+    width: 85px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    cursor: pointer;
+    margin-top: -45px;
+  }

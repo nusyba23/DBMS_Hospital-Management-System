@@ -18,7 +18,6 @@
         <p>Gender: </p>
         <p>DOB: </p>
         <p>Room: </p>
-        <button id="save" class="save-button" onclick="saveDetails()">Save Changes</button>
     </div>
 </div>
     <br>
@@ -28,12 +27,19 @@
         <p>Current Medications: </p>
         <p>Allergies: </p>
         <p>Recent Immunizations: </p>
-        <button id="save" class="save-button" onclick="saveDetails()">Save Changes</button>
     </div>
 <br>
     <div class="test-record">
-
+        <select>
+            <option value="mri-request">MRI Test</option>
+            <option value="xray-request">X-Ray</option>
+            <option value="lipid-request">Lipid Panel</option>
+            <option value="thyroid-request">Thyroid Panel</option>
+        </select>
+        <button class="save-button" onclick="showAlert()">Submit</button>
+        <!--https://www.washington.edu/accesscomputing/webd2/student/unit5/module2/lesson1.html-->
     </div>
+    <button id="save" class="save-button" onclick="saveDetails()">Save Changes</button>
     <script src="script.js"></script>
 </body>
 </html>

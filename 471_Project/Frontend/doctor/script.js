@@ -7,3 +7,6 @@ function startEdits(){
     saveButton.classList.add("show");
     
 }
+function showAlert(){
+    alert("Your test request has been successfully submitted.");
+}

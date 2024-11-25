@@ -215,7 +215,7 @@ input[type="text"], input[type="password"] {
     opacity: 0;
 }
 
-#save.show {
+#save.show{
     display: block; 
     opacity: 1;
     font-family: Cairo, sans-serif;
@@ -224,7 +224,24 @@ input[type="text"], input[type="password"] {
     border-radius: 20px;
     font-weight: bold;
     position:static;
-    right:600px;
+    right:400px;
+    top:600px;
+    height: 35px;
+    margin-top: 100px;
+    width:150px;
+    text-align: center;
+    
+}
+.save-button{
+    display: block; 
+    opacity: 1;
+    font-family: Cairo, sans-serif;
+    background-color: #B0D1D4;
+    color: #000;
+    border-radius: 20px;
+    font-weight: bold;
+    position:static;
+    right:400px;
     top:600px;
     height: 35px;
     margin-top: 25px;
@@ -246,4 +263,8 @@ input[type="text"], input[type="password"] {
     width: 263px;
     height: 285px;
     padding: 20px;
+}
+.test-record{
+    margin-left: 550px;
+    font-family: Cairo, sans-serif;
 }

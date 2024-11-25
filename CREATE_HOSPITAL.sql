@@ -17,13 +17,11 @@ CREATE TABLE Doctor (
     L_name VARCHAR(20) NOT NULL,
     Gender CHAR,
     type VARCHAR(20) DEFAULT 'General Practitioner',
-    PRIMARY KEY Doctor_Key (Doctor_ID),
-    CONSTRAINT chk_type CHECK (type = 'Specialist' OR 'Resident'
-        OR 'General Practitioner')
+    PRIMARY KEY Doctor_Key (Doctor_ID)
 );
 
 ALTER TABLE Doctor
-AUTO_INCREMENT = 100000000;
+AUTO_INCREMENT = 200000000;
 
 CREATE TABLE Department (
     Department_ID INT AUTO_INCREMENT,
@@ -99,7 +97,7 @@ CREATE TABLE Patient (
 );
 
 ALTER TABLE Patient
-AUTO_INCREMENT = 100000000;
+AUTO_INCREMENT = 300000000;
 
 CREATE TABLE Medical_Record (
     Patient_ID INT,
@@ -154,7 +152,7 @@ CREATE TABLE Treatment (
 );
 
 ALTER TABLE Treatment
-AUTO_INCREMENT = 100000000;
+AUTO_INCREMENT = 400000000;
 
 CREATE TABLE Test_Report (
     Report_ID INT AUTO_INCREMENT,
@@ -169,7 +167,7 @@ CREATE TABLE Test_Report (
 );
 
 ALTER TABLE Test_Report
-AUTO_INCREMENT = 100000000;
+AUTO_INCREMENT = 500000000;
 
 CREATE TABLE Physical_Treatment (
     Treatment_ID INT NOT NULL,
@@ -233,18 +231,5 @@ CREATE TABLE Nurse_Administers (
         ON DELETE CASCADE
 );
 
--- function to add patient
 
-delimiter $$
-CREATE PROCEDURE addPatient(IN f_n VARCHAR(20), IN l_name VARCHAR(20), IN bir DATE, IN sex CHAR, IN r_id INT, IN d_id INT, IN n_id INT, IN b_id INT) 
-
-BEGIN
-
-	INSERT INTO Patient(F_name, L_name, DOB, Gender, Room_ID, Doctor_ID, Nurse_ID, Bed_ID)
-	VALUES(f_name, l_name, bir, sex, r_id, d_id, n_id, b_id);
-
-END $$
-delimiter ;
-
-CALL addPatient("Puff", "Adder" , "1985-06-23", 'M', NULL, NULL, NULL, NULL);
 

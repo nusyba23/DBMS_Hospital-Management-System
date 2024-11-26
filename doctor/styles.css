@@ -1,0 +1,199 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #E9E4E4;
+    padding: 20px;
+    width: 400px;
+    margin: auto;
+    height: 450px;
+    border-radius: 20px;
+}
+
+.heading-container {
+    background-color: #D4D4D4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 90%;
+    margin-bottom: 20px; 
+    border-radius: 10px;
+}
+
+.login-title {
+    font-size: 24px;
+    color: black;
+    font-family: Cairo, sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+.login-subtitle {
+    font-size: 14px;
+    color: black;
+    font-weight: bold;
+    font-family: Cairo, sans-serif;
+    text-align: center;
+    margin-top: -10px; 
+}
+
+.login-form {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+}
+
+.txt {
+    color: black;
+    font-family: Cairo, sans-serif;
+    font-size: 14px;
+    align-self: flex-start;
+    margin-left: 5%;
+    margin-bottom: 5px;
+}
+
+input[type="text"], input[type="password"] {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.sign-in-button, .register-button {
+    width: 90%;
+    padding: 10px;
+    background-color: black;
+    color: #fff;
+    font-family: Cairo, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.sign-in-button:hover, .register-button:hover{
+    transform: scale(1.05);
+}
+
+.new-emp-link {
+    color: black;
+    font-family: Cairo, sans-serif;
+    font-size: 12px;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.doctor-action{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    width: 171px;
+    height: 246px;
+    background-color: #B0D1D4;
+    font-size: 18px;
+    font-family: Cairo, sans-serif;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 20px;
+    border-color: #B0D1D4;
+    font-weight: bold;
+}
+.doctor-action:hover{
+    transform: scale(1.05);
+}
+.icon-img{
+    width: 108px;
+    height: 108px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    align-items: center;
+}
+.hospital-details{
+    font-family: Cairo, sans-serif;
+}
+.title{
+    font-family: Cairo, sans-serif;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+
+}
+.action-buttons{
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: center;
+    gap: 162px;
+    
+}
+.body{
+    background-color: #E9E4E4;
+    height: 100%;
+    font-family: Cairo, sans-serif;
+    flex-direction: column;      
+}
+.search {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .search-bar-container {
+    position: relative;
+    width: 500px;
+  }
+  
+  .query {
+    width: 500px;
+    padding: 10px 40px 10px 20px;  
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+  
+  button {
+    all: unset;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: 10px; 
+    transform: translateY(-50%);
+  }
+  
+  svg {
+    width: 20px;
+    height: 20px;
+    color: #000;
+  }
+  .result{
+    font-family: Cairo, sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    display: flex;
+    flex-direction:  row;
+    justify-content: centerxs; 
+    align-items: center; 
+    margin-top: 20px;
+    gap: 10px;
+    width: 100%; 
+}
+
+.choose-patient {
+    background-color: #B0D1D4;
+    border-radius: 20px;
+    width: 85px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    cursor: pointer;
+    margin-top: -45px;
+  }

@@ -231,5 +231,20 @@ CREATE TABLE Nurse_Administers (
         ON DELETE CASCADE
 );
 
+CREATE TABLE Doctor_Passwords (
+    Doctor_ID INT,
+    Password VARCHAR(100),
+    PRIMARY KEY (Doctor_ID),
+    FOREIGN KEY (Doctor_ID)
+        REFERENCES Doctor (Doctor_ID)
+);
+    
+CREATE TABLE Nurse_Passwords (
+    Nurse_ID INT,
+    Password VARCHAR(100),
+    PRIMARY KEY (Nurse_ID),
+    FOREIGN KEY (Nurse_ID)
+        REFERENCES Nurse (Nurse_ID)
+);
 
 

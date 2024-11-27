@@ -237,6 +237,7 @@ CREATE TABLE Doctor_Passwords (
     PRIMARY KEY (Doctor_ID),
     FOREIGN KEY (Doctor_ID)
         REFERENCES Doctor (Doctor_ID)
+        ON DELETE CASCADE
 );
     
 CREATE TABLE Nurse_Passwords (
@@ -245,6 +246,7 @@ CREATE TABLE Nurse_Passwords (
     PRIMARY KEY (Nurse_ID),
     FOREIGN KEY (Nurse_ID)
         REFERENCES Nurse (Nurse_ID)
+        ON DELETE CASCADE
 );
 
 

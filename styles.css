@@ -1,3 +1,6 @@
+body{
+    font-family: Cairo, sans-serif;
+}
 .login-container{
     display: flex;
     flex-direction: column;
@@ -34,69 +37,93 @@
     margin-left: 147px;
 }
 
-.login-subtitle{
-    font-size: 16px;
-    color: black;
-    margin-bottom: 20px;
-    font-weight: bold;
-    font-family: Cairo, sans-serif;
-}
-.heading-container{
+.heading-container {
     background-color: #DEDBDB;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #D4D4D4; /* Adjust to your desired color */
-    padding: 20px;
-    width: 70%;
-    margin-bottom: 20px;
-    border-radius: 20px;
-}
-
-.option-container{
-    display: flex;
-    gap:20px;
-    background-color: #EFEFEF;
-    width: 250px;
-    height: 270px;
-    flex-direction:row;
-    align-items: center;
-    justify-content: center;
-    border-radius: 20px;
-    margin-bottom: 20px;
-    margin-left: 80px;
-
-}
-.login-form{
+    padding: 15px;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    color: #EFEFEF;
-    border-radius: 20px;
+    text-align: center;
+    border-radius: 15px;
+    margin-bottom: 60px;
 }
 
-.employee-button{
+.login-title {
+    font-size: 28px;
+    color: #000;
+    font-weight: bold;
+}
+
+.login-subtitle {
+    font-size: 18px;
+    color: #333;
+    margin-top: 5px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.txt {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.fields {
+    border: 1px solid #999;
+    border-radius: 15px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-family: Cairo, sans-serif;
+    color: #333;
+}
+
+.sign-in-button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sign-in-button:hover {
+    background-color: #444;
+}
+
+.new-emp-link {
+    color: #333;
+    font-size: 14px;
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.new-emp-link:hover {
+    text-decoration: underline;
+}
+
+.login-container-hospital{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 95px;
-    height: 150px;
-    background-color: #B0D1D4;
-    font-size: 18px;
-    font-family: Cairo, sans-serif;
-    text-align: center;
-    cursor: pointer;
+    background-color: #E9E4E4;
+    padding: 20px;
+    position: relative;
+    width: 400px;
+    height: 630px;
+    margin: auto;
     border-radius: 20px;
-    border-color: #B0D1D4;
-
-}
-.employee-button:hover{
-    transform: scale(1.05);
-}
-.icon-img{
-    width: 40px;
-    height: 40px;
-    margin-bottom: 15px;
 }

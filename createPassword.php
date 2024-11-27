@@ -21,7 +21,7 @@
                     <input type="password" name="pass2"
                         placeholder="Password" required>
                         <br>
-                <button type="submit" class="sign-in-button">Create</button>
+                <button type="submit" name="login" class="sign-in-button">Create</button>
                 </form>  
     </div>
     
@@ -30,9 +30,19 @@
 
 <?php
     session_start();
-    echo "Your new ID is {$_SESSION["Doctor_ID"]}";
+    $doctor = false;
+    $Doctor_ID;
+    $Nurse_ID;
+    if(strlen($_SESSION["Doctor_ID"])==4){
+        $doctor = true;
+        $Doctor_ID = $_SESSION["Doctor_ID"];
+        echo "Your new ID is {$_SESSION["Doctor_ID"]}";
+    }else{
+        $Nurse_ID = $_SESSION["Nurse_ID"];
+        echo "Your new ID is {$_SESSION["Nurse_ID"]}";
+    }
     //start session to carry ID to diplay for them
-    if($_SERVER["REQUEST_METHOD"] == "POST"){
+    if(isset($_POST["login"])){
 
         $pass1 = filter_input(INPUT_POST, "pass1", FILTER_SANITIZE_SPECIAL_CHARS);
         $pass2 = filter_input(INPUT_POST, "pass2", FILTER_SANITIZE_SPECIAL_CHARS);
@@ -41,22 +51,19 @@
         if(strcmp($pass1, $pass2) == 0){
 
             $Password = password_hash($pass1, PASSWORD_DEFAULT);
+            $sql;
 
-            //get max ID = new doc
-            $sql_get = "SELECT *
-                        FROM Doctor
-                        WHERE Doctor_ID = (SELECT MAX(Doctor_ID)
-                                            FROM Doctor)";
-
-            $result = mysqli_query($conn, $sql_get);
-            $row = mysqli_fetch_assoc($result);
-            $Doctor_ID = $row["Doctor_ID"];
-
-            $sql = "INSERT INTO Doctor_Passwords(Doctor_ID, Password)
-                    VALUES('{$Doctor_ID}','{$Password}')";
+            if($doctor){
+                $sql = "INSERT INTO Doctor_Passwords(Doctor_ID, Password)
+                        VALUES('{$Doctor_ID}','{$Password}')";
+            }else{
+                $sql = "INSERT INTO Nurse_Passwords(Nurse_ID, Password)
+                        VALUES('{$Nurse_ID}','{$Password}')";
+            }
 
             mysqli_query($conn, $sql);
             mysqli_close($conn);
+            session_destroy();
         
             header("Location: index.php");
             exit;

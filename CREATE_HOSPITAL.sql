@@ -16,8 +16,12 @@ CREATE TABLE Doctor (
     F_name VARCHAR(20) NOT NULL,
     L_name VARCHAR(20) NOT NULL,
     Gender CHAR,
-    type VARCHAR(20) DEFAULT 'General Practitioner',
-    PRIMARY KEY Doctor_Key (Doctor_ID)
+    Type VARCHAR(20) DEFAULT 'General Practitioner',
+    Department_ID,
+    PRIMARY KEY Doctor_Key (Doctor_ID),
+    FOREIGN KEY (Department_ID)
+        REFERENCES Department (Department_ID)
+        ON DELETE SET NULL
 );
 
 ALTER TABLE Doctor

@@ -158,7 +158,19 @@ input[type="text"], input[type="password"] {
     font-size: 16px;
   }
   
- 
+.log-out{
+    justify-content: center;
+    width: 150px;
+    height: 60px;
+    background-color: #B0D1D4;
+    font-size: 18px;
+    font-family: Cairo, sans-serif;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 20px;
+    border-color: #B0D1D4;
+    font-weight: bold;
+}
   
   svg {
     width: 20px;

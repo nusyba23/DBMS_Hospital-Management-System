@@ -17,7 +17,7 @@ CREATE TABLE Doctor (
     L_name VARCHAR(20) NOT NULL,
     Gender CHAR,
     Type VARCHAR(20) DEFAULT 'General Practitioner',
-    Department_ID,
+    Department_ID INT,
     PRIMARY KEY Doctor_Key (Doctor_ID),
     FOREIGN KEY (Department_ID)
         REFERENCES Department (Department_ID)

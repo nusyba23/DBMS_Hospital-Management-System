@@ -11,6 +11,16 @@ CREATE TABLE Hospital (
     PRIMARY KEY Hospital_Key (Hospital_ID)
 );
 
+CREATE TABLE Department (
+    Department_ID INT AUTO_INCREMENT,
+    Name VARCHAR(50) NOT NULL,
+    Hospital_ID INT,
+    PRIMARY KEY Department_Key (Department_ID),
+    FOREIGN KEY (Hospital_ID)
+        REFERENCES Hospital (Hospital_ID)
+        ON DELETE CASCADE
+);
+
 CREATE TABLE Doctor (
     Doctor_ID INT AUTO_INCREMENT,
     F_name VARCHAR(20) NOT NULL,
@@ -27,19 +37,18 @@ CREATE TABLE Doctor (
 ALTER TABLE Doctor
 AUTO_INCREMENT = 2000;
 
-CREATE TABLE Department (
-    Department_ID INT AUTO_INCREMENT,
-    Name VARCHAR(50) NOT NULL,
-    Head_Doctor_ID INT,
-    Hospital_ID INT,
-    PRIMARY KEY Department_Key (Department_ID),
-    FOREIGN KEY (Head_Doctor_ID)
+CREATE TABLE Department_Heads(
+    Doctor_ID INT,
+    Department_ID INT,
+    PRIMARY KEY Department_Heads_Key (Doctor_ID, Department_ID),
+    FOREIGN KEY (Department_ID)
+        REFERENCES Department (Department_ID)
+        ON DELETE CASCADE,
+    FOREIGN KEY (Doctor_ID)
         REFERENCES Doctor (Doctor_ID)
-        ON DELETE SET NULL,
-    FOREIGN KEY (Hospital_ID)
-        REFERENCES Hospital (Hospital_ID)
-        ON DELETE CASCADE
+        ON DELETE SET NULL
 );
+    
 
 CREATE TABLE Room (
     Room_ID INT AUTO_INCREMENT,

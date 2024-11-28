@@ -46,7 +46,7 @@ CREATE TABLE Department_Heads(
         ON DELETE CASCADE,
     FOREIGN KEY (Doctor_ID)
         REFERENCES Doctor (Doctor_ID)
-        ON DELETE SET NULL
+        ON DELETE CASCADE
 );
     
 

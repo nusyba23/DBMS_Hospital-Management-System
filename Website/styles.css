@@ -34,7 +34,6 @@ body{
     margin-bottom: 10px;
     align-items: center;
     text-align: center;
-    margin-left: 147px;
 }
 
 .heading-container {
@@ -127,3 +126,24 @@ body{
     margin: auto;
     border-radius: 20px;
 }
+.employee-img{
+    width: 86px;
+    height: 87px;
+}
+.employee-button{
+    background-color: #B9D9DB;
+    font-weight: bold;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  
+}
+.employee-button-container{
+    display: flex;
+    justify-content: center; 
+    gap: 20px; 
+}
+.employee-button:hover {
+    transform: scale(1.05);
+}
+

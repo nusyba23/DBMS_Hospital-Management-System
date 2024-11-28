@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    include("header.php");
 ?>
 
 <!DOCTYPE html>
@@ -91,9 +91,9 @@
             $ID = $_SESSION["ID"];
             //redirect
             if(($ID>1999) && ($ID<3000))
-                header("Location: doctor/dash.php");
+                header("Location: doctorDash.php");
             else if(($ID>999) && ($ID<2000))
-                header("Location: nurse/nurse.php");
+                header("Location: nurseDash.php");
             else
                 header("Location: index.php");
             exit;

@@ -67,7 +67,7 @@
         $row = mysqli_fetch_assoc($result);
         $_SESSION["Nurse_ID"] = $row["Nurse_ID"];
         
-        header("Location: ../createPassword.php");
+        header("Location: createPassword.php");
         exit;
     }
 

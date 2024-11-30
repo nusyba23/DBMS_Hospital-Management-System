@@ -44,31 +44,51 @@
     session_start();
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         // the file that estabishes the connection to database
-        include("../database.php");
-        //Variables from submit
-        $F_name = $_POST["F_name"];
-        $L_name = $_POST["L_name"];
-        $Gender = $_POST["Gender"];
-        $Department_ID = $_POST["Department_ID"];
+        $F_name = filter_input(INPUT_POST, "F_name", FILTER_SANITIZE_SPECIAL_CHARS);
+        $L_name = filter_input(INPUT_POST, "L_name", FILTER_SANITIZE_SPECIAL_CHARS);
+        $Gender = filter_input(INPUT_POST, "Gender", FILTER_SANITIZE_SPECIAL_CHARS);
+        $Department_ID = filter_input(INPUT_POST, "Department_ID", FILTER_VALIDATE_INT);
 
-        $sql = "INSERT INTO Nurse(F_name, L_name, Gender, Department_ID)
-                VALUES('{$F_name}','{$L_name}', '{$Gender}', '{$Department_ID}')";
-        
-        mysqli_query($conn, $sql);
-        mysqli_close($conn);
+        $input_valid = true;
 
-        include("../database.php");
-        //get max ID = new doc
-        $sql_get = "SELECT * FROM Nurse
-                    WHERE Nurse_ID = (SELECT MAX(Nurse_ID)
-                                        FROM Nurse)";
+        if(strlen($F_name) > 20){
+            echo "First name too long";
+            $input_valid = false;
+        }
 
-        $result = mysqli_query($conn, $sql_get);
-        $row = mysqli_fetch_assoc($result);
-        $_SESSION["Nurse_ID"] = $row["Nurse_ID"];
-        
-        header("Location: createPassword.php");
-        exit;
+        if(strlen($L_name) > 20){
+            echo "Last too long";
+            $input_valid = false;
+        }
+
+        if(empty($Department_ID)){
+            echo "Depatment_ID expect Int";
+            $input_valid = false;
+        }
+
+        if($input_valid){
+            $sql = "INSERT INTO Nurse(F_name, L_name, Gender, Department_ID)
+                    VALUES('{$F_name}','{$L_name}', '{$Gender}', '{$Department_ID}')";
+
+            include("database.php");
+            mysqli_query($conn, $sql);
+            mysqli_close($conn);
+
+
+
+            include("database.php");
+            //get max ID = new doc
+            $sql_get = "SELECT * FROM Nurse
+                        WHERE Nurse_ID = (SELECT MAX(Nurse_ID)
+                                            FROM Nurse)";
+
+            $result = mysqli_query($conn, $sql_get);
+            $row = mysqli_fetch_assoc($result);
+            $_SESSION["Nurse_ID"] = $row["Nurse_ID"];
+
+            header("Location: createPassword.php");
+            exit;
+        }
     }
 
 ?>

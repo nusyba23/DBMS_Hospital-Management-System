@@ -79,8 +79,26 @@
         if($input_valid){
             
             //sql statement
-            $sql = "INSERT INTO Department(Name, Head_Doctor_ID, Hospital_ID)
-                    VALUES('{$Name}','{$Head_Doctor_ID}','{$Hospital_ID}')";
+            $sql = "INSERT INTO Department(Name, Hospital_ID)
+                    VALUES('{$Name}','{$Hospital_ID}')";
+
+            //submit to database
+            include("database.php");
+            mysqli_query($conn, $sql);
+            mysqli_close($conn);
+            
+            //get assigned ID
+            $sql_get = "SELECT * FROM Department
+                        WHERE Department_ID = (SELECT MAX(Department_ID)
+                                                FROM Department)";
+            include("database.php");
+            $result = mysqli_query($conn, $sql_get);
+            $row = mysqli_fetch_assoc($result);
+            $D_ID = $row["Department_ID"];
+            echo "sup";
+            //Update heads
+            $sql = "INSERT INTO Department_Heads(Department_ID, Doctor_ID)
+                    VALUES('{$D_ID}','{$Head_Doctor_ID}')";
 
             //submit to database
             include("database.php");

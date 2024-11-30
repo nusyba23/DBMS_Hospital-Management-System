@@ -34,6 +34,7 @@ body{
     margin-bottom: 10px;
     align-items: center;
     text-align: center;
+    margin-left: 147px;
 }
 
 .heading-container {
@@ -99,6 +100,23 @@ body{
     background-color: #444;
 }
 
+.table-button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    width: auto;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.table-button:hover {
+    background-color: #444;
+}
+
 .new-emp-link {
     color: #333;
     font-size: 14px;
@@ -126,24 +144,3 @@ body{
     margin: auto;
     border-radius: 20px;
 }
-.employee-img{
-    width: 86px;
-    height: 87px;
-}
-.employee-button{
-    background-color: #B9D9DB;
-    font-weight: bold;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-  
-}
-.employee-button-container{
-    display: flex;
-    justify-content: center; 
-    gap: 20px; 
-}
-.employee-button:hover {
-    transform: scale(1.05);
-}
-

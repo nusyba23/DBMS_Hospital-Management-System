@@ -1,25 +1,31 @@
 <?php
-    include("header.php");
+    session_start();
 ?>
-
+<!-- PATIENT SEARCH -->
     <!DOCTYPE html>
     <html lang="en">
-    <form class="search"action="displayPatient.php" method="post">
+    <form class="search"action="myPatients.php" method="post">
     <div class="search-bar-container">
         <input type="search" class="query" name="PID" placeholder="Patient ID"required>
         <input type="submit" class="table-button" value="View Patient"></input>
     </div>
     </form>
     </html>
-
+<!-- PATIENT SEARCH DONE -->
 <?php
-    
+// DISPLAY MY PATIENTS    
     include("database.php");
-    $sql = "SELECT * FROM Patient";
+    $sql = "SELECT * FROM Patient 
+            WHERE Patient_ID IN
+					        ((SELECT (Patient_ID) FROM Patient 
+					        WHERE Nurse_ID = {$_SESSION["ID"]})
+                            UNION
+                            (SELECT (Patient_ID) FROM Patient 
+					        WHERE Doctor_ID = {$_SESSION["ID"]}))";
     $result = mysqli_query($conn, $sql);
     mysqli_close($conn);
 
-    echo "<h1>ALL PATIENTS</h1>";
+    echo "<h1>MY PATIENTS</h1>";
     echo "<table border = \"1\">";
     $needheaders = true;
     if(mysqli_num_rows($result) > 0){
@@ -37,7 +43,7 @@
             echo "<tr>";
             foreach($row as $key => $value){
                 if($needButton){
-                    echo "<th><form action=\"displayPatient.php\" method=\"post\"> <input type=\"submit\" class=\"sign-in-button\" name=\"PID\" value=\"{$value}\"></form></th>";
+                    echo "<th><form action=\"myPatients.php\" method=\"post\"> <input type=\"submit\" class=\"sign-in-button\" name=\"PID\" value=\"{$value}\"></form></th>";
                     $needButton = false;
                 }else{
                     echo "<th>{$value}</th>";
@@ -48,11 +54,14 @@
         }
     }
     echo "</table>";
+// DISPLAY MY PATIENTS DONE
 
+//BUTTONS REDIRECT
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         if(isset($_POST["PID"])){
             $_SESSION["Patient_ID"] = $_POST["PID"];
             header("Location: patientDash.php"); 
         }
     }
+//BUTTONS REDIRECT
 ?>

@@ -12,7 +12,7 @@
             <h1 class = "login-title">Hospital Database</h1>
             <p class="login-subtitle">Please Log In</p>
         </div>
-                <form class="login-form" action= "index.php" method = "post">
+                <form class="login-form" action="index.php" method="post">
                     <label for="first" class="txt">ID</label>
                     <!--ID not specific so it can be compared in verification-->
                     <input type="text" name="ID" class="fields"
@@ -124,6 +124,7 @@
         mysqli_close($conn);
 
         $_SESSION["Hospital_ID"] = $tuple["Hospital_ID"];
+        $_SESSION["Department_Name"] = $tuple["Name"];
 
         $sql_get = "SELECT *
                     FROM Hospital
@@ -140,9 +141,11 @@
         $_SESSION["City"] = $tuple["City"];
 
         if($doctor){
+            $_SESSION["User_Type"] = "Doctor";
             header("Location: doctorDash.php");
         }   
         else{
+            $_SESSION["User_Type"] = "Nurse";
             header("Location: nurseDash.php");
         }
     }

@@ -14,28 +14,33 @@
         </div>
                 <form class="login-form" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
                     <label for="first" class="txt">First Name</label>
-                    <input type="text" name="F_name"
+                    <input type="text" name="F_name" class="text-input"
                         placeholder="John" required>
                         <br>
 
                     <label for="first" class="txt">Last Name</label>
-                    <input type="text" name="L_name"
+                    <input type="text" name="L_name" class="text-input"
                         placeholder="Smith" required>
                         <br>
                     
-                    <label for="first" class="txt">Gender</label>
-                    <input type="radio" name= "Gender" value ="M">
-                    M<br>
-                    <input type="radio" name= "Gender" value ="F">
-                    F<br>
+                        <label for="gender" class="txt">Gender</label>
+                        <div class="gender-choice">
+                            <label>
+                            <input type="radio" name="Gender" value="M" class="txt"> M
+                            </label>
+                            <label>
+                            <input type="radio" name="Gender" value="F" class="txt"> F
+                            </label>
+                        </div>
+                        <br>
 
                     <label for="first" class="txt">Department</label>
-                    <input type="text" name="Department_ID"
+                    <input type="text" name="Department_ID" class="text-input"
                         placeholder="required">
                         <br>
                     
                     <label for="first" class="txt">Specialization</label>
-                    <input type="text" name="Type"
+                    <input type="text" name="Type" class="text-input"
                         placeholder="not required">
                         <br>
                         

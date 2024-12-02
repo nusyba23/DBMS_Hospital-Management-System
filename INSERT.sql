@@ -14,23 +14,23 @@ VALUES
 ('Orthopedics', 3),
 ('Emergency', 2);
 
-INSERT INTO Doctor (F_name, L_name, Gender, Type, Department_ID)
+INSERT INTO Doctor (F_name, L_name, Gender, Type, Doctor_ID, Department_ID)
 VALUES 
-('Michael', 'Clark', 'M', 'Surgeon', 4),
-('Laura', 'Adams', 'F', 'Dermatologist', 1),
-('Ryan', 'Lee', 'M', 'Oncologist', 5),
-('Megan', 'Taylor', 'F', 'Psychiatrist', 3),
-('Daniel', 'Thomas', 'M', 'Cardiologist', 1);
+('Michael', 'Clark', 'M', 'Surgeon', 2000, 4),
+('Laura', 'Adams', 'F', 'Dermatologist', 2001, 1),
+('Ryan', 'Lee', 'M', 'Oncologist', 2002, 5),
+('Megan', 'Taylor', 'F', 'Psychiatrist', 2003, 3),
+('Daniel', 'Thomas', 'M', 'Cardiologist', 2004, 1);
 
-INSERT INTO Nurse (F_name, L_name, Gender, Department_ID)
+INSERT INTO Nurse (F_name, L_name, Gender, Nurse_ID, Department_ID)
 VALUES 
-('Lily', 'Evans', 'F', 2),
-('Mark', 'Hall', 'M', 4),
-('Emma', 'Watson', 'F', 1),
-('Oliver', 'Stone', 'M', 5),
-('Sophia', 'Jones', 'F', 3);
+('Lily', 'Evans', 'F', 1000, 2),
+('Mark', 'Hall', 'M', 1001, 4),
+('Emma', 'Watson', 'F', 1002, 1),
+('Oliver', 'Stone', 'M', 1003, 5),
+('Sophia', 'Jones', 'F', 1004, 3);
 
-INSERT INTO Room (Department_ID, Status)
+INSERT INTO Room (Department_ID, Status) 
 VALUES 
 (1, 'Occupied'),
 (2, 'Available'),
@@ -40,13 +40,14 @@ VALUES
 
 INSERT INTO Bed (Room_ID)
 VALUES 
-(4),
-(5),
-(6),
-(7),
-(8);
+(1), 
+(2), 
+(3), 
+(4), 
+(5);
 
-INSERT INTO Department_Heads (Doctor_ID, Department_ID) VALUES
+INSERT INTO Department_Heads (Doctor_ID, Department_ID) 
+VALUES
 (2001, 1),
 (2002, 2),
 (2003, 3),
@@ -117,6 +118,14 @@ VALUES
 (4003, 'Paracetamol', '500mg', 'Every 6 hours'),
 (4004, 'Ibuprofen', '200mg', 'Twice daily');
 
+INSERT INTO Doctor_Degree (Doctor_ID, Degree) 
+VALUES 
+(2000, 'MD'),
+(2001, 'PhD'),
+(2002, 'MBBS'),
+(2003, 'MBBS'),
+(2004, 'PHD');
+
 INSERT INTO Test_Report (Test_Result, Test_Type, Test_date, Patient_ID) 
 VALUES
 ('Positive', 'X-Ray', '2024-11-14', 3000),
@@ -136,5 +145,31 @@ VALUES
 (3004, 'Antihistamine'),
 (3005, 'Aspirin'),
 (3006, 'Ibuprofen');
+
+INSERT INTO Doctor_Administers (Treatment_ID, Doctor_ID, Date, Time) 
+VALUES 
+(4000, 2000, '2024-12-01', '09:00:00'),
+(4001, 2001, '2024-12-01', '10:00:00');
+
+INSERT INTO Nurse_Administers (Treatment_ID, Nurse_ID, Date, Time) 
+VALUES 
+(4002, 1000, '2024-12-02', '11:00:00'),
+(4003, 1001, '2024-12-02', '12:00:00');
+
+INSERT INTO Doctor_Passwords (Doctor_ID, Password) 
+VALUES 
+(2000, 'docpass123'),
+(2001, 'docpass456'),
+(2002, 'docpass789'),
+(2003, 'docpass123'),
+(2004, 'docpass234');
+
+INSERT INTO Nurse_Passwords (Nurse_ID, Password) 
+VALUES 
+(1000, 'nursepass123'),
+(1001, 'nursepass456'),
+(1002, 'nursepass789'),
+(1003, 'nursepass123'),
+(1004, 'nursepass456');
 
 

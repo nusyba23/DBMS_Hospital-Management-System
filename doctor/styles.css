@@ -127,3 +127,23 @@ body{
     margin: auto;
     border-radius: 20px;
 }
+
+.text-input{
+    border-radius: 20px;
+    border-width: 1px;
+    height: 15px;
+}
+.register-button{
+    border-radius: 20px;
+    background-color: #000;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    height: 30px;
+    
+}
+.gender-choice{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

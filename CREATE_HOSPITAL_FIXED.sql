@@ -24,7 +24,7 @@ CREATE TABLE Doctor (
     Doctor_ID INT AUTO_INCREMENT,
     F_name VARCHAR(20) NOT NULL,
     L_name VARCHAR(20) NOT NULL,
-    Gender CHAR,
+    Gender CHAR CHECK (Gender IN ('M', 'F')),
     Type VARCHAR(20) DEFAULT 'General Practitioner',
     Department_ID INT,
     PRIMARY KEY (Doctor_ID),
@@ -52,7 +52,7 @@ CREATE TABLE Department_Heads(
 CREATE TABLE Room (
     Room_ID INT AUTO_INCREMENT,
     Department_ID INT,
-    status VARCHAR(15),
+    Status VARCHAR(15) NOT NULL DEFAULT 'Available',
     PRIMARY KEY (Room_ID),
     FOREIGN KEY (Department_ID)
         REFERENCES Department (Department_ID)
@@ -113,7 +113,7 @@ AUTO_INCREMENT = 3000;
 
 CREATE TABLE Medical_Record (
     Patient_ID INT,
-    Wieght_kg DECIMAL,
+    Weight_kg DECIMAL,
     PRIMARY KEY (Patient_ID),
     FOREIGN KEY (Patient_ID)
         REFERENCES Patient (Patient_ID)
@@ -169,7 +169,7 @@ AUTO_INCREMENT = 4000;
 CREATE TABLE Test_Report (
     Report_ID INT AUTO_INCREMENT,
     Test_Result VARCHAR(20),
-    Test_Tpye VARCHAR(20),
+    Test_Type VARCHAR(20),  
     Test_date DATE,
     Patient_ID INT,
     PRIMARY KEY (Report_ID),
@@ -261,4 +261,8 @@ CREATE TABLE Nurse_Passwords (
         ON DELETE CASCADE
 );
 
-
+ALTER TABLE Doctor AUTO_INCREMENT = 2000;
+ALTER TABLE Nurse AUTO_INCREMENT = 1000;
+ALTER TABLE Patient AUTO_INCREMENT = 3000;
+ALTER TABLE Treatment AUTO_INCREMENT = 4000;
+ALTER TABLE Test_Report AUTO_INCREMENT = 5000;

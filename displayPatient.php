@@ -6,21 +6,23 @@
     mysqli_close($conn);
 
     $needheaders = true;
+    echo "<table border='1'>"; // Start an HTML table
     if(mysqli_num_rows($result) > 0){
         while($row = mysqli_fetch_assoc($result)){
             if($needheaders){
                 $needheaders = false;
+                echo "<tr>"; // Start header row
                 foreach($row as $key => $value){
-                    //within quotes need proper html for table hearder $key = attribute
-                    echo "{$key}   ";
+                    echo "<th>{$key}</th>"; // Add table headers
                 }
-                echo "<br>";
+                echo "</tr>"; // End header row
             }
+            echo "<tr>"; // Start data row
             foreach($row as $key => $value){
-                //within quotes need proper html for tuple display $value
-                echo "{$value}   ";
+                echo "<td>{$value}</td>"; // Add table data
             }
-            echo "<br>";
+            echo "</tr>"; // End data row
         }
     }
+    echo "</table>"; // End HTML table
 ?>

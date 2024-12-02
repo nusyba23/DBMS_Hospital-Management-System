@@ -11,7 +11,7 @@ body{
     position: relative;
     top: 80px;
     width: 400px;
-    height: 530px;
+    height: 550px;
     margin: auto;
     border-radius: 20px;
 }
@@ -43,7 +43,7 @@ body{
     width: 100%;
     text-align: center;
     border-radius: 15px;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
 }
 
 .login-title {
@@ -154,3 +154,4 @@ body{
     align-content: center;
     text-align: center;
 }
+

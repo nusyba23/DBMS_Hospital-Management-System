@@ -1,104 +1,139 @@
+/* General Body Styling */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+    font-family: Cairo, sans-serif;
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    background-color: #F9F9F9;
 }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+/* Container for the Entire Form */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #E9E4E4;
     padding: 20px;
+    position: relative;
+    top: 80px;
+    width: 450px;
+    height: auto;
+    margin: auto;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.header {
+/* Header for the Form */
+.heading-container {
+    background-color: #DEDBDB;
+    padding: 15px;
+    width: 100%;
     text-align: center;
-    margin-bottom: 20px;
+    border-radius: 15px;
+    margin-bottom: 30px;
 }
 
-.header h1 {
-    font-size: 24px;
+.login-title {
+    font-size: 28px;
+    color: #000;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.login-subtitle {
+    font-size: 18px;
+    color: #555;
+    margin-top: 5px;
+}
+
+/* Form Styling */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.txt {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.fields {
+    border: 1px solid #999;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-family: Cairo, sans-serif;
     color: #333;
 }
 
-.header p {
-    margin: 5px 0;
-    color: #666;
-}
-
-.search-bar {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.search-bar input {
-    width: 70%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-.search-bar button {
-    padding: 10px;
-    font-size: 16px;
-    border: none;
+/* Submit Button */
+.register-button {
     background-color: #5cb85c;
-    color: white;
-    border-radius: 5px;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.search-bar button:hover {
+.register-button:hover {
     background-color: #4cae4c;
 }
 
-.patient-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+/* Optional Checkbox and Radio Buttons */
+input[type="checkbox"],
+input[type="radio"] {
+    margin-right: 10px;
+    transform: scale(1.2);
 }
 
-.patient-card {
-    display: flex;
-    align-items: center;
-    background-color: #f4f4f4;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.patient-image img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin-right: 20px;
-}
-
-.patient-details h2 {
-    margin: 0;
-    font-size: 18px;
+/* Adjustments for Checkbox and Radio Label */
+input[type="checkbox"] + label,
+input[type="radio"] + label {
+    display: inline-block;
+    margin-bottom: 15px;
+    font-size: 14px;
     color: #333;
-}
-
-.patient-details p {
-    margin: 5px 0;
-    color: #666;
-}
-
-.choose-btn {
-    margin-left: auto;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
     cursor: pointer;
 }
 
-.choose-btn:hover {
-    background-color: #0056b3;
+/* Error Message (Optional Styling) */
+.error-message {
+    color: #D9534F;
+    font-size: 14px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: left;
+}
+
+/* Success Message (Optional Styling) */
+.success-message {
+    color: #5cb85c;
+    font-size: 14px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: left;
+}
+
+/* Additions for Wider Screens */
+@media screen and (min-width: 768px) {
+    .login-container {
+        width: 500px;
+    }
+}
+
+/* Additions for Focus and Active Fields */
+.fields:focus {
+    outline: none;
+    border-color: #5cb85c;
+    box-shadow: 0 0 5px rgba(92, 184, 92, 0.5);
 }

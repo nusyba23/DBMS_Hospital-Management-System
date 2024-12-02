@@ -18,7 +18,7 @@ TAKES INPUT FROM FORM FOR ALL ATTRIBUTES IN PATEINT NOT ID! ID IS AUTO!  -->
     <div class="login-container-hospital">
         <div class="heading-container">
             <h1 class = "login-title">Hospital Database</h1>
-            <p class="login-subtitle">New Hospital Registration</p>
+            <p class="login-subtitle">New Patient Registration</p>
         </div>
                 <form class="login-form" action="addHospital.php" method="post">
                     <label for="first" class="txt">Name</label>

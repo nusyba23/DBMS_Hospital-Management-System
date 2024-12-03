@@ -10,31 +10,23 @@
     <div class="login-container">
         <div class="heading-container">
             <h1 class = "login-title">Hospital Database</h1>
-            <p class="login-subtitle">Update Password</p>
+            <p class="login-subtitle">Please Log In</p>
         </div>
-                <form class="login-form" action= "updatePassword.php" method = "post">
+                <form class="login-form" action="index.php" method="post">
                     <label for="first" class="txt">ID</label>
                     <!--ID not specific so it can be compared in verification-->
                     <input type="text" name="ID" class="fields"
-                        placeholder="xxxx" required>
+                        placeholder="xxxxxxxxxx" required>
                     
                     <label for="password" class="txt">Password</label>
                     <input type="password" name="password" class="fields"
                         placeholder="Password" required>
                         <br>
-                    <label for="password" class="txt">New Password</label>
-                    <input type="password" name="pass1"
-                        placeholder="Password" required>
-                        <br>
-                    <label for="password" class="txt">Re-Enter New Password</label>
-                    <input type="password" name="pass2"
-                        placeholder="Password" required>
-                        <br>
 
-                    <button type="submit" name="login" class="sign-in-button">Update</button>
+                    <button type="submit" name="login" class="sign-in-button">Sign In</button>
 
                     <p>
-                        <a href="index.php" class="new-emp-link">Login Page</a>
+                        <a href="doctorOrNurse.html" class="new-emp-link">New Employee? Register Here</a>
                     </p>
                 </form>
             
@@ -46,6 +38,12 @@
 
 <?php
     session_start();
+    foreach($_SESSION as $key => $value){
+        echo "{$key} = {$value} <br>";
+    }
+    foreach($_POST as $key => $value){
+        echo "{$key} = {$value} <br>";
+    }
     //sanitize input to prevent x-site script
     $ID = filter_input(INPUT_POST, "ID", FILTER_SANITIZE_SPECIAL_CHARS);
     $attempt = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
@@ -92,38 +90,63 @@
         $valid_password = password_verify($attempt, $password);
     }
     $attempt = "";
-    $sql_put;
+    $sql_get_name;
     if($valid_password){
-        $pass1 = filter_input(INPUT_POST, "pass1", FILTER_SANITIZE_SPECIAL_CHARS);
-        $pass2 = filter_input(INPUT_POST, "pass2", FILTER_SANITIZE_SPECIAL_CHARS);
-
-        if(strcmp($pass1, $pass2) == 0){
-
-            $Password = password_hash($pass1, PASSWORD_DEFAULT);
-            $sql;
-
-            if($doctor){
-                echo "here";
-                $sql = "UPDATE Doctor_Passwords
-                        SET Password = '{$Password}'
-                        WHERE Doctor_ID = {$ID}";
-            }else{
-                $sql = "UPDATE Nurse_Passwords
-                        SET Password = '{$Password}'
-                        WHERE Nurse_ID = {$ID}";
-            }
-            include("database.php");
-            mysqli_query($conn, $sql);
-            mysqli_close($conn);
-
-            if($doctor)
-                header("Location: doctor/dash.php");
-            else
-                header("Location: nurse/dash.php");
-            exit;
+        if($doctor){
+            $sql_get_name = "SELECT *
+                            FROM Doctor
+                            WHERE Doctor_ID = {$ID}";
+            
+        }else{
+            $sql_get_name = "SELECT *
+                            FROM Nurse
+                            WHERE Nurse_ID = {$ID}";
         }
+        include("database.php");
+        
+        $result = mysqli_query($conn, $sql_get_name);
+        $tuple = mysqli_fetch_assoc($result);
+        mysqli_close($conn);
+        $_SESSION["Name"] = $tuple["F_name"] . ' ' . $tuple["L_name"];
+        $_SESSION["ID"] = $ID; 
+        $_SESSION["Gender"] = $tuple["Gender"];
+        $_SESSION["Department"] = $tuple["Department_ID"];
+        if($doctor)
+            $_SESSION["Doctor_type"] = $tuple["Type"];
+
+        $sql_get = "SELECT *
+                    FROM Department
+                    WHERE Department_ID = {$_SESSION["Department"]}";
+       
+        include("database.php");
+        $result = mysqli_query($conn, $sql_get);
+        $tuple = mysqli_fetch_assoc($result);
+        mysqli_close($conn);
+
+        $_SESSION["Hospital_ID"] = $tuple["Hospital_ID"];
+        $_SESSION["Department_Name"] = $tuple["Name"];
+
+        $sql_get = "SELECT *
+                    FROM Hospital
+                    WHERE Hospital_ID = {$_SESSION["Hospital_ID"]}";
+       
+        include("database.php");
+        $result = mysqli_query($conn, $sql_get);
+        $tuple = mysqli_fetch_assoc($result);
+        mysqli_close($conn);
+
+
+        $_SESSION["Hospital"] = $tuple["Name"];
+        $_SESSION["Address"] = $tuple["Street_Num"]. ' ' . $tuple["Street"];
+        $_SESSION["City"] = $tuple["City"];
+
+        if($doctor){
+            $_SESSION["User_Type"] = "Doctor";
+            header("Location: doctorDash.php");
+        }   
         else{
-            echo "Passwords do not match";
+            $_SESSION["User_Type"] = "Nurse";
+            header("Location: nurseDash.php");
         }
     }
     else{

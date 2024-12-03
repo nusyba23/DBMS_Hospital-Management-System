@@ -1,8 +1,7 @@
 <?php
-    session_start();
+    include("header.php");
 ?>
 
-<!-- need update -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,12 +37,12 @@
                         placeholder="Street" required>
                         <br>
                         
-                    <button type="submit" class="register-button" >Register</button>       
+                    <button type="submit" class="sign-in-button" >Register</button>       
                 </form>  
     </div>  
 </body>
 </html>
-<!-- doesn't need updating -->
+
 <?php
     //runs when button pressed
     if($_SERVER["REQUEST_METHOD"] == "POST" && (strlen($_SESSION["ID"]) == 4)){
@@ -65,7 +64,7 @@
             echo "Name too long";
             $input_valid = false;
         }
-    
+
         if(strlen($City) > 20){
             echo "City too long";
             $input_valid = false;
@@ -104,9 +103,9 @@
             $ID = $_SESSION["ID"];
             //redirect
             if(($ID>1999) && ($ID<3000))
-                header("Location: doctor/dash.php");
+                header("Location: doctorDash.php");
             else if(($ID>999) && ($ID<2000))
-                header("Location: nurse/nurse.php");
+                header("Location: nurseDash.php");
             else
                 header("Location: index.php");
             exit;

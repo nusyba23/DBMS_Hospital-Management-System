@@ -1,4 +1,5 @@
 <?php
+include("header.php");
 include("database.php");
 
 $sql = "SELECT * FROM Hospital";

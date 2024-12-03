@@ -158,18 +158,28 @@ VALUES
 
 INSERT INTO Doctor_Passwords (Doctor_ID, Password) 
 VALUES 
-(2000, 'docpass123'),
-(2001, 'docpass456'),
-(2002, 'docpass789'),
-(2003, 'docpass123'),
-(2004, 'docpass234');
+(2000, '
+$2y$10$fMU5eifPY1iv5RG4YIE1z.USsFw2D.VB4TNAy6eDGiBhqsi11mRpW'),
+(2001, '
+$2y$10$fMU5eifPY1iv5RG4YIE1z.USsFw2D.VB4TNAy6eDGiBhqsi11mRpW'),
+(2002, '
+$2y$10$fMU5eifPY1iv5RG4YIE1z.USsFw2D.VB4TNAy6eDGiBhqsi11mRpW'),
+(2003, '
+$2y$10$fMU5eifPY1iv5RG4YIE1z.USsFw2D.VB4TNAy6eDGiBhqsi11mRpW'),
+(2004, '
+$2y$10$fMU5eifPY1iv5RG4YIE1z.USsFw2D.VB4TNAy6eDGiBhqsi11mRpW');
 
 INSERT INTO Nurse_Passwords (Nurse_ID, Password) 
 VALUES 
-(1000, 'nursepass123'),
-(1001, 'nursepass456'),
-(1002, 'nursepass789'),
-(1003, 'nursepass123'),
-(1004, 'nursepass456');
+(1000, '
+$2y$10$fMU5eifPY1iv5RG4YIE1z.USsFw2D.VB4TNAy6eDGiBhqsi11mRpW'),
+(1001, '
+$2y$10$fMU5eifPY1iv5RG4YIE1z.USsFw2D.VB4TNAy6eDGiBhqsi11mRpW'),
+(1002, '
+$2y$10$fMU5eifPY1iv5RG4YIE1z.USsFw2D.VB4TNAy6eDGiBhqsi11mRpW'),
+(1003, '
+$2y$10$fMU5eifPY1iv5RG4YIE1z.USsFw2D.VB4TNAy6eDGiBhqsi11mRpW'),
+(1004, '
+$2y$10$fMU5eifPY1iv5RG4YIE1z.USsFw2D.VB4TNAy6eDGiBhqsi11mRpW');
 
 

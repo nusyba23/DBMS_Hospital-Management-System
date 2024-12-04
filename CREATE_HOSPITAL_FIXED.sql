@@ -184,7 +184,7 @@ AUTO_INCREMENT = 5000;
 CREATE TABLE Physical_Treatment (
     Treatment_ID INT NOT NULL,
     Exersize_Type VARCHAR(20),
-    Frequency VARCHAR(20),
+    Frequency INT,
     PRIMARY KEY (Treatment_ID),
     FOREIGN KEY (Treatment_ID)
         REFERENCES Treatment (Treatment_ID)
@@ -194,7 +194,7 @@ CREATE TABLE Physical_Treatment (
 CREATE TABLE Psychological_Treatment (
     Treatment_ID INT NOT NULL,
     Therapy_Type VARCHAR(20),
-    Frequency VARCHAR(20),
+    Frequency INT,
     PRIMARY KEY (Treatment_ID),
     FOREIGN KEY (Treatment_ID)
         REFERENCES Treatment (Treatment_ID)
@@ -205,7 +205,7 @@ CREATE TABLE Pharmecuetical_Treatment (
     Treatment_ID INT NOT NULL,
     Drug_name VARCHAR(20),
     Dosage VARCHAR(20),
-    Frequency VARCHAR(20),
+    Frequency INT,
     PRIMARY KEY (Treatment_ID),
     FOREIGN KEY (Treatment_ID)
         REFERENCES Treatment (Treatment_ID)

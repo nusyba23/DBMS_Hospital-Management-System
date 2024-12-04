@@ -24,10 +24,3 @@ dashboards
 - display patients for the particular employee(done)
 - treatments due for admin
 
-SELECT * FROM Patient 
-            WHERE Patient_ID IN
-					        (SELECT (Patient_ID) FROM Patient 
-					        WHERE Nurse_ID = 2001
-                            OR
-                            (SELECT (Patient_ID) FROM Patient 
-					        WHERE Doctor_ID = 2001));

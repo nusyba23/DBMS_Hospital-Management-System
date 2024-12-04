@@ -9,6 +9,7 @@ foreach($_POST as $key => $value){
 $_SERVER["REQUEST_METHOD"] == "POST";
 ?>
 
+"<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>"
 <!-- BIG BUTTONS DOC -->
 <!DOCTYPE html>
 <html lang="en">

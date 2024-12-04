@@ -2,6 +2,8 @@
     include("header.php");
     
     $PID = $_SESSION["Patient_ID"];
+    if($_SESSION["ID"]> 1999)
+        echo "<button class=\"table-button\" onclick=\"window.location.href = 'treatmentType.php'\">Add Treatment</button>";
 
     $results = array();
 

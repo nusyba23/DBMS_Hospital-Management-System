@@ -14,11 +14,11 @@
         </div>
                 <form class="login-form" action="createPassword.php" method="post">
                     <label for="password" class="txt">Password</label>
-                    <input type="password" name="pass1"
+                    <input type="password" name="pass1" class="text-input"
                         placeholder="Password" required>
                         <br>
                     <label for="password" class="txt">Re-Enter Password</label>
-                    <input type="password" name="pass2"
+                    <input type="password" name="pass2" class="text-input"
                         placeholder="Password" required>
                         <br>
                 <button type="submit" name="login" class="sign-in-button">Create</button>

@@ -5,7 +5,7 @@ include("database.php");
 $sql = "SELECT * FROM Hospital";
 $result = mysqli_query($conn, $sql);
 mysqli_close($conn);
-
+//echo "<h2 style='color:black; font-family: Cairo, sans-serif;>Hospitals</h2>";
 $needheaders = true;
 if (mysqli_num_rows($result) > 0) {
     echo "<table border='1' style='border-collapse: collapse; width: 100%; font-family: Cairo, sans-serif; border-radius: 10px;'>";

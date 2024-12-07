@@ -1,5 +1,18 @@
 <?php
     include("header.php");
+    include("database.php");
+
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        if(isset($_POST["PID"])){
+            $_SESSION["Patient_ID"] = $_POST["PID"];
+            header("Location: patientDash.php"); 
+        }
+    }
+
+    include("database.php");
+    $sql = "SELECT * FROM Patient";
+    $result = mysqli_query($conn, $sql);
+    mysqli_close($conn);
 ?>
 
     <!DOCTYPE html>
@@ -13,11 +26,6 @@
     </html>
 
 <?php
-    
-    include("database.php");
-    $sql = "SELECT * FROM Patient";
-    $result = mysqli_query($conn, $sql);
-    mysqli_close($conn);
 
     echo "<h2 style='color:black; font-family: Cairo, sans-serif;'>All Patients</h2>";
     echo "<table border='1' style='border-collapse: collapse; width: 100%; font-family: Cairo, sans-serif; border-radius: 10px;'>";
@@ -49,10 +57,5 @@
     }
     echo "</table>";
 
-    if($_SERVER["REQUEST_METHOD"] == "POST"){
-        if(isset($_POST["PID"])){
-            $_SESSION["Patient_ID"] = $_POST["PID"];
-            header("Location: patientDash.php"); 
-        }
-    }
+    
 ?>

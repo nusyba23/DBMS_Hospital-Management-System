@@ -2,7 +2,7 @@
 include("header.php");
 include("database.php");
 
-$sql = "SELECT * FROM Room INNER JOIN Bed ON Room.RoomID = Bed.RoomID";
+$sql = "SELECT Room.Room_ID, Bed.Bed_ID, Room.status FROM Room INNER JOIN Bed ON Room.Room_ID = Bed.Room_ID";
 $result = mysqli_query($conn, $sql);
 mysqli_close($conn);
 $needheaders = true;

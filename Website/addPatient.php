@@ -31,35 +31,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <h1>Add New Patient</h1>
-    <form method="POST" action="">
-        <label for="first_name">First Name:</label>
-        <input type="text" name="first_name" required><br>
+    <form class="login-form" method="POST" action="">
+        <label for="first_name" class="txt">First Name:</label>
+        <input type="text" class="text-input" name="first_name" required><br>
         
-        <label for="last_name">Last Name:</label>
-        <input type="text" name="last_name" required><br>
+        <label for="last_name" class="txt">Last Name:</label>
+        <input type="text" name="last_name" class="text-input" required><br>
 
         <label for="dob">Date of Birth:</label>
-        <input type="date" name="dob" required><br>
+        <input type="date" name="dob" class="text-input" required><br>
 
-        <label for="gender">Gender:</label>
+        <label for="gender" class="txt" >Gender:</label>
         <select name="gender" required>
-            <option value="M">Male</option>
-            <option value="F">Female</option>
+            <option value="M" class="txt" >Male</option>
+            <option value="F" class="txt" >Female</option>
         </select><br>
 
-        <label for="doctor_id">Assigned Doctor:</label>
-        <input type="number" name="doctor_id" required><br>
+        <label for="doctor_id" class="txt">Assigned Doctor:</label>
+        <input type="number" class="text-input" name="doctor_id" required><br>
 
-        <label for="nurse_id">Assigned Nurse:</label>
-        <input type="number" name="nurse_id" required><br>
+        <label for="nurse_id" class="txt">Assigned Nurse:</label>
+        <input type="number" class="text-input" name="nurse_id" required><br>
 
-        <label for="room_id">Room ID:</label>
-        <input type="number" name="room_id" required><br>
+        <label for="room_id" class="txt">Room ID:</label>
+        <input type="number"  class="text-input" name="room_id" required><br>
 
-        <label for="bed_id">Bed ID:</label>
-        <input type="number" name="bed_id" required><br>
+        <label for="bed_id" class="txt">Bed ID:</label>
+        <input type="number" class="text-input" name="bed_id" required><br>
 
-        <button type="submit">Add Patient</button>
+        <button type="submit" class="register-button">Add Patient</button>
     </form>
 </body>
 </html>

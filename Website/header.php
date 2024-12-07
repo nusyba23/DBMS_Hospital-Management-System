@@ -42,6 +42,7 @@
     <button class="table-button" onclick="window.location.href = 'addDepartment.php'">Add Department</button>
     <button class="table-button" onclick="window.location.href = 'addHospital.php'">Add Hospital</button>
     <button class="table-button" onclick="window.location.href = 'displayHospitals.php'">Hospitals</button>
+    <button class="table-button" onclick="window.location.href = 'displayRooms&Beds.php'">Rooms and Beds</button>
     <button class="table-button" onclick="window.location.href = 'updatePassword.php'">Update Password</button>
     </tr>
 </table>

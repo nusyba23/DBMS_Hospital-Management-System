@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include("header.php");
     
     if($_SERVER["REQUEST_METHOD"] == "POST" && (strlen($_SESSION["ID"]) == 4)){
@@ -24,7 +25,8 @@
         }
         
         if($input_valid){
-            echo "here";
+            header("Location: patientDash.php");
+            //echo "here";
             $sql = "INSERT INTO Treatment(Date, Doctor_ID, Patient_ID, Time, type)
                     VALUES({$Date},{$Doctor_ID},{$Patient_ID},{$Time},'{$type}')";
             
@@ -49,7 +51,7 @@
             mysqli_query($conn, $sql);
             mysqli_close($conn);
 
-            header("Location: patientDash.php");
+            
 
         }
         

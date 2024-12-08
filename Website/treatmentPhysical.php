@@ -73,7 +73,7 @@
             <p class="login-subtitle">New Treatment</p>
         </div>
                 <form class="login-form" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
-                    <label for="first" class="txt">Exersize Type</label>
+                    <label for="first" class="txt">Exercize Type</label>
                     <input type="text" name="Exersize_Type" class="fields"
                         required>
                         <br>

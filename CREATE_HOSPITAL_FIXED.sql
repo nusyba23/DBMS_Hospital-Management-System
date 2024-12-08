@@ -33,9 +33,6 @@ CREATE TABLE Doctor (
         ON DELETE SET NULL
 );
 
-ALTER TABLE Doctor
-AUTO_INCREMENT = 2000;
-
 CREATE TABLE Department_Heads(
     Doctor_ID INT,
     Department_ID INT,
@@ -48,7 +45,6 @@ CREATE TABLE Department_Heads(
         ON DELETE CASCADE
 );
     
-
 CREATE TABLE Room (
     Room_ID INT AUTO_INCREMENT,
     Department_ID INT,
@@ -80,9 +76,6 @@ CREATE TABLE Nurse (
         ON DELETE SET NULL
 );
 
-ALTER TABLE Nurse
-AUTO_INCREMENT = 1000;
-
 CREATE TABLE Patient (
     Patient_ID INT AUTO_INCREMENT,
     F_name VARCHAR(20) NOT NULL,
@@ -107,9 +100,6 @@ CREATE TABLE Patient (
         REFERENCES Nurse (Nurse_ID)
         ON DELETE SET NULL
 );
-
-ALTER TABLE Patient
-AUTO_INCREMENT = 3000;
 
 CREATE TABLE Medical_Record (
     Patient_ID INT,
@@ -163,9 +153,6 @@ CREATE TABLE Treatment (
         ON DELETE CASCADE
 );
 
-ALTER TABLE Treatment
-AUTO_INCREMENT = 4000;
-
 CREATE TABLE Test_Report (
     Report_ID INT AUTO_INCREMENT,
     Test_Result VARCHAR(20),
@@ -177,9 +164,6 @@ CREATE TABLE Test_Report (
         REFERENCES Patient (Patient_ID)
         ON DELETE CASCADE
 );
-
-ALTER TABLE Test_Report
-AUTO_INCREMENT = 5000;
 
 CREATE TABLE Physical_Treatment (
     Treatment_ID INT NOT NULL,

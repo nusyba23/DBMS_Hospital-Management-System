@@ -2,11 +2,11 @@
 include("header.php");
 include("database.php");
 
-$sql = "SELECT * FROM Hospital";
+$sql = "SELECT Room.Room_ID, Bed.Bed_ID, Room.status FROM Room INNER JOIN Bed ON Room.Room_ID = Bed.Room_ID";
 $result = mysqli_query($conn, $sql);
 mysqli_close($conn);
 $needheaders = true;
-echo "<h2 style='color:black; font-family: Cairo, sans-serif;'>Hospitals</h2>";
+echo "<h2 style='color:black; font-family: Cairo, sans-serif;'>Rooms and Beds</h2>";
 if (mysqli_num_rows($result) > 0) {
     echo "<table border='1' style='border-collapse: collapse; width: 100%; font-family: Cairo, sans-serif; border-radius: 10px;'>";
     while ($row = mysqli_fetch_assoc($result)) {

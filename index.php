@@ -12,7 +12,7 @@
             <h1 class = "login-title">Hospital Database</h1>
             <p class="login-subtitle">Please Log In</p>
         </div>
-                <form class="login-form" action= "index.php" method = "post">
+                <form class="login-form" action="index.php" method="post">
                     <label for="first" class="txt">ID</label>
                     <!--ID not specific so it can be compared in verification-->
                     <input type="text" name="ID" class="fields"
@@ -38,6 +38,12 @@
 
 <?php
     session_start();
+    foreach($_SESSION as $key => $value){
+        echo "{$key} = {$value} <br>";
+    }
+    foreach($_POST as $key => $value){
+        echo "{$key} = {$value} <br>";
+    }
     //sanitize input to prevent x-site script
     $ID = filter_input(INPUT_POST, "ID", FILTER_SANITIZE_SPECIAL_CHARS);
     $attempt = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
@@ -104,13 +110,43 @@
         $_SESSION["Name"] = $tuple["F_name"] . ' ' . $tuple["L_name"];
         $_SESSION["ID"] = $ID; 
         $_SESSION["Gender"] = $tuple["Gender"];
-        if($doctor){
+        $_SESSION["Department"] = $tuple["Department_ID"];
+        if($doctor)
             $_SESSION["Doctor_type"] = $tuple["Type"];
-            header("Location: doctor/dash.php");
+
+        $sql_get = "SELECT *
+                    FROM Department
+                    WHERE Department_ID = {$_SESSION["Department"]}";
+       
+        include("database.php");
+        $result = mysqli_query($conn, $sql_get);
+        $tuple = mysqli_fetch_assoc($result);
+        mysqli_close($conn);
+
+        $_SESSION["Hospital_ID"] = $tuple["Hospital_ID"];
+        $_SESSION["Department_Name"] = $tuple["Name"];
+
+        $sql_get = "SELECT *
+                    FROM Hospital
+                    WHERE Hospital_ID = {$_SESSION["Hospital_ID"]}";
+       
+        include("database.php");
+        $result = mysqli_query($conn, $sql_get);
+        $tuple = mysqli_fetch_assoc($result);
+        mysqli_close($conn);
+
+
+        $_SESSION["Hospital"] = $tuple["Name"];
+        $_SESSION["Address"] = $tuple["Street_Num"]. ' ' . $tuple["Street"];
+        $_SESSION["City"] = $tuple["City"];
+
+        if($doctor){
+            $_SESSION["User_Type"] = "Doctor";
+            header("Location: doctorDash.php");
         }   
         else{
-            $_SESSION["Nurse_Department"] = $tuple["Department"];
-            header("Location: nurse/dash.php");
+            $_SESSION["User_Type"] = "Nurse";
+            header("Location: nurseDash.php");
         }
     }
     else{

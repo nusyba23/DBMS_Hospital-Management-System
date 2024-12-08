@@ -117,9 +117,9 @@
             mysqli_close($conn);
 
             if($doctor)
-                header("Location: doctor/dash.php");
+                header("Location: doctorDash.php");
             else
-                header("Location: nurse/dash.php");
+                header("Location: nurseDash.php");
             exit;
         }
         else{

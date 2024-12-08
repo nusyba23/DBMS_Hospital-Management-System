@@ -1,3 +1,7 @@
+<?php
+    include("header.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,18 +17,21 @@
 <body>
     <div class = "login-container">
         <div class="heading-container">
-            <h1 class = "login-title">Hospital Database</h1>
+            <h1 class = "login-title">Treatment Type</h1>
             <p class="login-subtitle">Please Select:</p>
         </div>
         <div class="login-form">
-            <h2 class="login-sub-title">Are you a:</h2>
             <div class="employee-button-container">
-            <button class="employee-button" onclick="window.location.href='addDoctor.php'">Doctor
+            <button class="employee-button" onclick="window.location.href='treatmentPharmecuetical.php'">Pharmecuetical
                 <img class="employee-img" src="images/doctor.png" alt="Doctor Icon"/>
             </button>
-            <button class="employee-button" onclick="window.location.href='addNurse.php'">Nurse
+            <button class="employee-button" onclick="window.location.href='treatmentPhychological.php'">Phychological
                 <img class="employee-img" src="images/nurse.png" alt="Nurse Icon"/>
             </button>
+            <button class="employee-button" onclick="window.location.href='treatmentPhysical.php'">Physical
+                <img class="employee-img" src="images/doctor.png" alt="Doctor Icon"/>
+            </button>
+            
             </div>
         </div>
 

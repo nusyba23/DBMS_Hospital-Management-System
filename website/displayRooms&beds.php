@@ -2,6 +2,9 @@
 include("header.php");
 include("database.php");
 
+echo "<button class=\"table-button\" onclick=\"window.location.href = 'addRoom.php'\">Add Bed</button>";
+echo "<button class=\"table-button\" onclick=\"window.location.href = 'addBed.php'\">Add Room</button>";
+
 $sql = "SELECT Room.Room_ID, Bed.Bed_ID, Room.status FROM Room INNER JOIN Bed ON Room.Room_ID = Bed.Room_ID";
 $result = mysqli_query($conn, $sql);
 mysqli_close($conn);

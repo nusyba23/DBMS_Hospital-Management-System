@@ -1,20 +1,22 @@
 <?php
-// DISPLAY MY Treatments 
     include("header.php");
-     //BUTTONS REDIRECT
-    if(isset($_POST["Treatment_ID"])){
-        $_SESSION["Treatment_ID"] = $_POST["Treatment_ID"];
-        header("Location: displayTreatment.php"); 
+    //BUTTONS REDIRECT
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        if(isset($_POST["Bed_ID"])){
+            $_SESSION["Bed_ID"] = $_POST["Bed_ID"];
+            header("Location: BedDash.php"); 
+        }
     }
-
 //BUTTONS REDIRECT
-    $sql = "SELECT * FROM Treatment 
-            WHERE Patient_ID = {$_SESSION["Patient_ID"]}";
-	include("database.php");				       
+
+// DISPLAY Beds    
+    include("database.php");
+    $sql = "SELECT * FROM Bed
+            WHERE Room_ID = {$_SESSION["Room_ID"]}";
     $result = mysqli_query($conn, $sql);
     mysqli_close($conn);
-
-    echo "<h1>MY Treatments</h1>";
+    echo "<button class=\"table-button\" onclick=\"window.location.href = 'addBed.php'\">Add Bed</button>";
+    echo "<h1>Beds</h1>";
     echo "<table border = \"1\">";
     $needheaders = true;
     if(mysqli_num_rows($result) > 0){
@@ -34,10 +36,10 @@
             foreach($row as $key => $value){
                 
                 if($needButton){
-                    echo "<th><form action=\"myTreatments.php\" method=\"post\"> <input type=\"submit\" class=\"sign-in-button\" name=\"Treatment_ID\" value=\"{$value}\"></form></th>";
+                    echo "<th><form action=\"BedDash.php\" method=\"post\"> <input type=\"submit\" class=\"sign-in-button\" name=\"Bed_ID\" value=\"{$value}\"></form></th>";
                     $needButton = false;
                 }else{
-                    echo "<td style='background-color: #ffffff; text-align: center; padding: 10px; font-size: 15px;'>{$value}</td>";
+                    echo "<td style='background-color: #ffffff; text-align: center; padding: 10px; font-size: 15px;'>{$value}</td>";;
                 }
             }
             echo "</tr>";
@@ -46,5 +48,6 @@
     }
     echo "</table>";
 // DISPLAY MY PATIENTS DONE
+
 
 ?>

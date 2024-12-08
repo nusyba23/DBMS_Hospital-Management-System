@@ -17,6 +17,7 @@
 
     <!DOCTYPE html>
     <html lang="en">
+    <button class="table-button" onclick="window.location.href = 'addPatient.php'">Add Patient</button>
     <form class="search"action="displayPatient.php" method="post">
     <div class="search-bar-container">
         <input type="search" class="query" name="PID" placeholder="Patient ID"required>

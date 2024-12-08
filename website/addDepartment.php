@@ -21,13 +21,7 @@
                     <input type="text" name="Name" class="fields"
                         placeholder="Department Name" required>
                         <br>
-
-                    <label for="first" class="txt">City</label>
-                    <input type="text" name="Hospital_ID" class="fields"
-                        placeholder="Hospital ID" required>
-                        <br>
-                    
-                    <label for="first" class="txt">Street Number</label>
+                    <label for="first" class="txt">Head DoctorID</label>
                     <input type="text" name="Head_Doctor_ID" class="fields"
                         placeholder="Head Doctor ID" required>
                         <br>    
@@ -47,7 +41,7 @@
         //Sanitize
         $Name = filter_input(INPUT_POST, "Name", FILTER_SANITIZE_SPECIAL_CHARS);
         $Head_Doctor_ID = filter_input(INPUT_POST, "Head_Doctor_ID", FILTER_VALIDATE_INT);
-        $Hospital_ID = filter_input(INPUT_POST, "Hospital_ID", FILTER_VALIDATE_INT);
+        $Hospital_ID = $_SESSION["Hospital_ID"];
 
         //Ensure not too long and right types for DB
         if(strlen($Name) > 50){
@@ -62,16 +56,6 @@
     
         if(strlen($Head_Doctor_ID) > 4){
             echo "Head_Doctor_ID too long";
-            $input_valid = false;
-        }
-
-        if(empty($Hospital_ID)){
-            echo "Hospital_ID expect Int";
-            $input_valid = false;
-        }
-    
-        if(strlen($Hospital_ID) > 4){
-            echo "Hospital_ID too long";
             $input_valid = false;
         }
         
@@ -104,16 +88,8 @@
             include("database.php");
             mysqli_query($conn, $sql);
             mysqli_close($conn);
-            
-            //redirect
-            $ID = $_SESSION["ID"];
-            //redirect
-            if(($ID>1999) && ($ID<3000))
-                header("Location: doctorDash.php");
-            else if(($ID>999) && ($ID<2000))
-                header("Location: nurseDash.php");
-            else
-                header("Location: index.php");
+    
+            header("Location: hospitalDash.php");
             exit;
         }
     }

@@ -25,7 +25,7 @@
             <button class="employee-button" onclick="window.location.href='treatmentPharmecuetical.php'">Pharmecuetical
                 <img class="employee-img" src="images/doctor.png" alt="Doctor Icon"/>
             </button>
-            <button class="employee-button" onclick="window.location.href='treatmentPhychological.php'">Phychological
+            <button class="employee-button" onclick="window.location.href='treatmentPsychological.php'">Psychological
                 <img class="employee-img" src="images/nurse.png" alt="Nurse Icon"/>
             </button>
             <button class="employee-button" onclick="window.location.href='treatmentPhysical.php'">Physical

@@ -61,7 +61,7 @@ body{
 .login-form {
     display: flex;
     flex-direction: column;
-    width: 25%;
+    width: 100%;
 }
 
 .txt {

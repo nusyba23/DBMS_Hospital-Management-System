@@ -38,9 +38,6 @@
     <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
         <input type="submit" class="table-button" name="patients" value="Patients">
     </form>
-    <button class="table-button" onclick="window.location.href = 'addPatient.php'">Add Patient</button>
-    <button class="table-button" onclick="window.location.href = 'addDepartment.php'">Add Department</button>
-    <button class="table-button" onclick="window.location.href = 'addHospital.php'">Add Hospital</button>
     <button class="table-button" onclick="window.location.href = 'displayHospitals.php'">Hospitals</button>
     <button class="table-button" onclick="window.location.href = 'updatePassword.php'">Update Password</button>
     <button class="table-button" onclick="window.location.href = 'displayRooms&Beds.php'">Rooms and Beds</button>

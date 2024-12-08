@@ -8,7 +8,7 @@
         $Doctor_ID = $_SESSION["ID"];
         $Patient_ID = $_SESSION["Patient_ID"];
         $Time = "current_time()";
-        $type = "Phychological";
+        $type = "Psychological";
 
         //specific type variables
         $Treatment_ID;
@@ -24,7 +24,7 @@
         }
         
         if($input_valid){
-            echo "here";
+            
             $sql = "INSERT INTO Treatment(Date, Doctor_ID, Patient_ID, Time, type)
                     VALUES({$Date},{$Doctor_ID},{$Patient_ID},{$Time},'{$type}')";
             
@@ -41,10 +41,10 @@
             mysqli_close($conn);
             $row = mysqli_fetch_assoc($result);
             $Treatment_ID = $row["Treatment_ID"];
-
-            $sql = "INSERT INTO Phychological_Treatment(Treatment_ID, Therapy_Type, Frequency)
+            
+            $sql = "INSERT INTO Psychological_Treatment(Treatment_ID, Therapy_Type, Frequency)
             VALUES({$Treatment_ID},'{$Therapy_Type}',{$Frequency})";
-    
+            echo "$sql";
             include("database.php");
             mysqli_query($conn, $sql);
             mysqli_close($conn);

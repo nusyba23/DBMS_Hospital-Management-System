@@ -1,20 +1,14 @@
 <?php
-// DISPLAY MY Treatments 
     include("header.php");
-     //BUTTONS REDIRECT
-    if(isset($_POST["Treatment_ID"])){
-        $_SESSION["Treatment_ID"] = $_POST["Treatment_ID"];
-        header("Location: displayTreatment.php"); 
-    }
 
-//BUTTONS REDIRECT
-    $sql = "SELECT * FROM Treatment 
-            WHERE Patient_ID = {$_SESSION["Patient_ID"]}";
-	include("database.php");				       
+// DISPLAY Departments    
+    include("database.php");
+    $sql = "SELECT * FROM Department 
+            WHERE Hospital_ID = {$_SESSION["Hospital_ID"]}";
     $result = mysqli_query($conn, $sql);
     mysqli_close($conn);
-
-    echo "<h1>MY Treatments</h1>";
+    echo "<button class=\"table-button\" onclick=\"window.location.href = 'addDepartment.php'\">Add Department</button>";
+    echo "<h1>Departments</h1>";
     echo "<table border = \"1\">";
     $needheaders = true;
     if(mysqli_num_rows($result) > 0){
@@ -34,10 +28,10 @@
             foreach($row as $key => $value){
                 
                 if($needButton){
-                    echo "<th><form action=\"myTreatments.php\" method=\"post\"> <input type=\"submit\" class=\"sign-in-button\" name=\"Treatment_ID\" value=\"{$value}\"></form></th>";
+                    echo "<th><form action=\"hospitalDash.php\" method=\"post\"> <input type=\"submit\" class=\"sign-in-button\" name=\"Department_ID\" value=\"{$value}\"></form></th>";
                     $needButton = false;
                 }else{
-                    echo "<td style='background-color: #ffffff; text-align: center; padding: 10px; font-size: 15px;'>{$value}</td>";
+                    echo "<td style='background-color: #ffffff; text-align: center; padding: 10px; font-size: 15px;'>{$value}</td>";;
                 }
             }
             echo "</tr>";
@@ -47,4 +41,12 @@
     echo "</table>";
 // DISPLAY MY PATIENTS DONE
 
+//BUTTONS REDIRECT
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        if(isset($_POST["Department_ID"])){
+            $_SESSION["Department_ID"] = $_POST["Department_ID"];
+            header("Location: departmentDash.php"); 
+        }
+    }
+//BUTTONS REDIRECT
 ?>

@@ -35,10 +35,6 @@
         header("Location: patientDash.php");
     }
 
-
-    //BUTTONS REDIRECT
-    // DISPLAY MY Treatments 
-
     include("header.php");
     
     $Type = "Pharmecuetical";
@@ -50,10 +46,11 @@
     
 	$result = mysqli_query($conn, $sql);
     mysqli_close($conn);
+
     if(mysqli_num_rows($result) <= 0){
-        $Type = "Phychological";
+        $Type = "Psychological";
         include("database.php");
-        $sql = "SELECT * FROM Phychological_Treatment 
+        $sql = "SELECT * FROM Psychological_Treatment 
             WHERE Treatment_ID = {$_SESSION["Treatment_ID"]}";
 	    $result = mysqli_query($conn, $sql);
         mysqli_close($conn);
@@ -91,8 +88,7 @@
                 
                 if($needButton){
                     echo "<th><form action=\"displayTreatment.php\" method=\"post\"> <input type=\"submit\" class=\"sign-in-button\" name=\"Admin\" value=\"Admin {$value}\"></form>
-                        <form action=\"displayTreatment.php\" method=\"post\"> <input type=\"submit\" class=\"sign-in-button\" name=\"Delete\" value=\"Delete {$value}\"></form>
-                        <form action=\"displayTreatment.php\" method=\"post\"> <input type=\"submit\" class=\"sign-in-button\" name=\"Edit\" value=\"Edit {$value}\"></form></th>";
+                        <form action=\"displayTreatment.php\" method=\"post\"> <input type=\"submit\" class=\"sign-in-button\" name=\"Delete\" value=\"Delete {$value}\"></form></th>";
                     $needButton = false;
                 }else{
                     echo "<td style='background-color: #ffffff; text-align: center; padding: 10px; font-size: 15px;'>{$value}</td>";
@@ -103,5 +99,5 @@
         }
     }
     echo "</table>";
-// DISPLAY MY PATIENTS DONE
+
 ?>

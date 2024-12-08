@@ -226,9 +226,12 @@ CREATE TABLE Doctor_Administers (
     Doctor_ID INT,
     Date DATE,
     Time TIME,
-    PRIMARY KEY (Treatment_ID , Doctor_ID),
+    PRIMARY KEY (Treatment_ID , Doctor_ID, Date, Time),
     FOREIGN KEY (Doctor_ID)
         REFERENCES Doctor (Doctor_ID)
+        ON DELETE CASCADE
+    FOREIGN KEY (Treatment_ID)
+        REFERENCES Treatment (Treatment_ID)
         ON DELETE CASCADE
 );
 
@@ -237,9 +240,12 @@ CREATE TABLE Nurse_Administers (
     Nurse_ID INT,
     Date DATE,
     Time TIME,
-    PRIMARY KEY (Treatment_ID , Nurse_ID),
+    PRIMARY KEY (Treatment_ID , Nurse_ID, Date, Time),
     FOREIGN KEY (Nurse_ID)
         REFERENCES Nurse (Nurse_ID)
+        ON DELETE CASCADE
+    FOREIGN KEY (Treatment_ID)
+        REFERENCES Treatment (Treatment_ID)
         ON DELETE CASCADE
 );
 

@@ -8,7 +8,7 @@
     $result = mysqli_query($conn, $sql);
     mysqli_close($conn);
 
-    echo "<h1>MY Treatments</h1>";
+    echo "<h1 style='color:black; font-family: Cairo, sans-serif;'>My Treatments</h1>";
     echo "<table border = \"1\">";
     $needheaders = true;
     if(mysqli_num_rows($result) > 0){

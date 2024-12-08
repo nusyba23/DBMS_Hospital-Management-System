@@ -73,7 +73,7 @@
             <p class="login-subtitle">New Treatment</p>
         </div>
                 <form class="login-form" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
-                    <label for="first" class="txt">Drug_name</label>
+                    <label for="first" class="txt">Drug Name</label>
                     <input type="text" name="Drug_name" class="fields"
                         required>
                         <br>

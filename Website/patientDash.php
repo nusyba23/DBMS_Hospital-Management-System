@@ -5,9 +5,6 @@
     if($_SESSION["ID"]> 1999)
         echo "<button class=\"table-button\" onclick=\"window.location.href = 'treatmentType.php'\">Add Treatment</button>";
     echo "<button class=\"table-button\" onclick=\"window.location.href = 'myTreatments.php'\">Treatments</button>";
-    include("myTreatments.php");
-    
-    
     $results = array();
 
     include("database.php");
@@ -55,22 +52,23 @@
     //need to add table tags
     
     foreach($results as $result){
-        echo "<table border = \"1\">";
+        echo "<div style='margin-bottom: 20px;'>";
+        echo "<table border='1' style='border-collapse: collapse; width: 100%; font-family: Cairo, sans-serif; border-radius: 10px; margin-bottom: 20px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); overflow: hidden;'>";
         $needheaders = true;
         if(mysqli_num_rows($result) > 0){
             while($row = mysqli_fetch_assoc($result)){
                 if($needheaders){
                     $needheaders = false;
-                    echo "<tr>";
+                    echo "<tr style='background-color: #E9E4E4; color: black; font-size: 15px;'>";
                     foreach($row as $key => $value){
                         //within quotes need proper html for table hearder $key = attribute
-                        echo "<th>{$key}</th>";
+                        echo "<th style='padding: 12px; text-align: center; font-weight: bold; font-size: 16px; border-bottom: 2px solid #000;'>{$key}</th>";
                     }
                     echo "</tr>";
                 }
                 echo "<tr>";
                 foreach($row as $key => $value){
-                    echo "<th>{$value}</th>";
+                    echo "<td style='background-color: #ffffff; text-align: center; padding: 10px; font-size: 15px;'>{$value}</td>";
                     }
                 echo "</tr>";
             }

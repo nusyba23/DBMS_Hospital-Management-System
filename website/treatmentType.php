@@ -23,13 +23,13 @@
         <div class="login-form">
             <div class="employee-button-container">
             <button class="employee-button" onclick="window.location.href='treatmentPharmecuetical.php'">Pharmecuetical
-                <img class="employee-img" src="images/doctor.png" alt="Doctor Icon"/>
+                <img class="employee-img" src="images/medicine.png" alt="Medicine Icon"/>
             </button>
             <button class="employee-button" onclick="window.location.href='treatmentPsychological.php'">Psychological
-                <img class="employee-img" src="images/nurse.png" alt="Nurse Icon"/>
+                <img class="employee-img" src="images/psych-img.png" alt="Psychological Icon"/>
             </button>
             <button class="employee-button" onclick="window.location.href='treatmentPhysical.php'">Physical
-                <img class="employee-img" src="images/doctor.png" alt="Doctor Icon"/>
+                <img class="employee-img" src="images/physical-treat.png" alt="Physical Treatment Icon"/>
             </button>
             
             </div>

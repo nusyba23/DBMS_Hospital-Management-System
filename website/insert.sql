@@ -55,15 +55,15 @@ VALUES
 (2004, 4);
 
 
-INSERT INTO Patient (F_name, L_name, DOB, Gender, Room_ID, Doctor_ID, Nurse_ID, Bed_ID)
+INSERT INTO Patient (F_name, L_name, DOB, Gender, Doctor_ID, Nurse_ID)
 VALUES 
-('Emily', 'Brown', '1990-05-20', 'F', 1, 2000, 1000,  1),
-('James', 'Green', '1985-12-10', 'M', 2, 2001, 1001,  2),
-('Anna', 'Clark', '1990-05-15', 'F', 1, 2001, 1001,  1),
-('Luke', 'Martin', '1985-02-23', 'M', 2, 2002, 1002,  2),
-('Emma', 'Walker', '2000-07-01', 'F', 3, 2003, 1003,  3),
-('Ethan', 'Young', '1978-11-12', 'M', 4, 2004, 1004,  4),
-('Mia', 'Harris', '1995-10-30', 'F', 5, 2000, 1000,  5);
+('Emily', 'Brown', '1990-05-20', 'F', 2000, 1000),
+('James', 'Green', '1985-12-10', 'M', 2001, 1001),
+('Anna', 'Clark', '1990-05-15', 'F', 2001, 1001),
+('Luke', 'Martin', '1985-02-23', 'M', 2002, 1002),
+('Emma', 'Walker', '2000-07-01', 'F', 2003, 1003),
+('Ethan', 'Young', '1978-11-12', 'M', 2004, 1004),
+('Mia', 'Harris', '1995-10-30', 'F', 2000, 1000);
 
 INSERT INTO Medical_Record (Patient_ID, Weight_kg)
 VALUES 

@@ -8,9 +8,10 @@
     echo "<button class=\"table-button\" onclick=\"window.location.href = 'addImmunization.php'\">Add Immunization</button>";
     echo "<button class=\"table-button\" onclick=\"window.location.href = 'addAllergy.php'\">Add Allergy</button>";
     echo "<button class=\"table-button\" onclick=\"window.location.href = 'addMedication.php'\">Add Medication</button>";
+    echo "<button class=\"table-button\" onclick=\"window.location.href = 'addTest.php'\">Add Test Report</button>";
     echo "<button class=\"table-button\" onclick=\"window.location.href = 'assignBed.php'\">Assign Bed</button>";
-    echo "<button class=\"table-button\" onclick=\"window.location.href = 'addMedication.php'\">Assign Doctor</button>";
-    echo "<button class=\"table-button\" onclick=\"window.location.href = 'addMedication.php'\">Assign Nurse</button>";
+    echo "<button class=\"table-button\" onclick=\"window.location.href = 'assignDoctor.php'\">Assign Doctor</button>";
+    echo "<button class=\"table-button\" onclick=\"window.location.href = 'assignNurse.php'\">Assign Nurse</button>";
     echo "<button class=\"table-button\" onclick=\"window.location.href = 'deletePatient.php'\">Delete Patient</button>";
     $results = array();
 

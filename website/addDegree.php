@@ -8,20 +8,20 @@
     <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hospital DB-Assign Nurse</title>
+    <title>Hospital DB-Add Degree</title>
 </head>
 <body>
     <div class="login-container-hospital">
         <div class="heading-container">
             <h1 class = "login-title">Hospital Database</h1>
-            <p class="login-subtitle">Assign Nurse</p>
+            <p class="login-subtitle">Add Degree</p>
         </div>
                 <form class="login-form" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
-                    <label for="first" class="txt">Nurse ID</label>
-                    <input type="text" name="Nurse_ID" class="fields"
+                    <label for="first" class="txt">Degree</label>
+                    <input type="text" name="Degree" class="fields"
                      required>
                         <br>
-                    <button type="submit" class="register-button" name="Table"  value= "Patient">Add</button>       
+                    <button type="submit" class="register-button" name="Submit"  value= "Submit">Add</button>       
                 </form>  
     </div>  
 </body>
@@ -35,20 +35,29 @@
         $input_valid = true;
 
         //Sanitize
-        $Nurse_ID = filter_input(INPUT_POST, "Nurse_ID", FILTER_VALIDATE_INT);
-        $Patient_ID = $_SESSION["Patient_ID"];
-        $Table = $_POST["Table"];
+        $Degree = filter_input(INPUT_POST, "Degree", FILTER_SANITIZE_SPECIAL_CHARS);
+        $Doctor_ID = $_SESSION["ID"];
+
+        //Ensure not too long and right types for DB
+        if(strlen($Degree) > 50){
+            echo "Name too long";
+            $input_valid = false;
+        }
         
         //Determined to be valid
         if($input_valid){
+            
+            //sql statement
+            $sql = "INSERT INTO Doctor_Degree (Degree, Doctor_ID)
+                    VALUES('{$Degree}',{$Doctor_ID})";
+            
+            echo "$sql";
 
-            //sql statement to update
-            $sql = "UPDATE {$Table} SET Nurse_ID = {$Nurse_ID} WHERE Patient_ID = {$Patient_ID}";
+            //submit to database
             include("database.php");
             mysqli_query($conn, $sql);
             mysqli_close($conn);
-            
-            header("Location: patientDash.php");
+            header("Location: doctorDash.php");
             
         }
     }

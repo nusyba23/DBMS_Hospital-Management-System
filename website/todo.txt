@@ -1,26 +1,4 @@
-decide if there is an admin else both doctors and nurse do all
-
-
-create buttons on header page that have all buttons that doctors
-and nurses can do.
-
-- add patient
-- view patients(includes, medical recrods, immunization, allergy and tests)
-- patient dash (add treatment etc)
-- view treatment
-- admin treatment (buttons next to treatments in patient dash)
-- add treatment
-    - upon additon considered not done
-    - upon every interval shows up on nurses to do
-- add immunization
-- add allergy
-- update medical record
-- add degree (display in header?)
-- add specialization (display in header?)
-
-dashboards
-
-- buttons accross top(started follow convention)
-- display patients for the particular employee(done)
-- treatments due for admin
+MY TO DO:
+Assign Doctor, Assign Nurse, Test_Report add, Degree_ADD and display after name
+EER Update Interval to Frequency
 

@@ -2,6 +2,22 @@
     session_start();
     include("echoVars.php");
 
+    $sql = "SELECT Degree
+            FROM Doctor_Degree
+            WHERE Doctor_ID = {$_SESSION["ID"]}";
+    include("database.php");
+    $result = mysqli_query($conn, $sql);
+    mysqli_close($conn);
+
+    
+
+    $Degree = "";
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $Degree = $Degree . " " . $row["Degree"];
+        }
+    }
+
 //actions on button press
     if(isset($_POST["logout"])){
         session_destroy();
@@ -40,12 +56,11 @@
     </form>
     <button class="table-button" onclick="window.location.href = 'displayHospitals.php'">Hospitals</button>
     <button class="table-button" onclick="window.location.href = 'updatePassword.php'">Update Password</button>
-    <button class="table-button" onclick="window.location.href = 'displayRooms&Beds.php'">Rooms and Beds</button>
     </tr>
 </table>
 <!-- BUTTONS TABLE END -->
 <!-- INFO DISPLAY -->
-    <h1 class="title">Name: <?php echo$_SESSION["Name"]?> </h1>
+    <h1 class="title">Name: <?php echo$_SESSION["Name"]?><?php echo$Degree ?></h1>
     <h3 class="title">User Type: <?php echo$_SESSION["User_Type"]?> </h3>
     <h3 class="hospital-details">Hospital: <?php echo$_SESSION["Hospital"]?> <br>
                                 Department: <?php echo$_SESSION["Department_Name"]?> <br>

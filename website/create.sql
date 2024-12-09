@@ -85,12 +85,6 @@ CREATE TABLE Patient (
     Doctor_ID INT,
     Nurse_ID INT,
     PRIMARY KEY (Patient_ID),
-    FOREIGN KEY (Room_ID)
-        REFERENCES Room (Room_ID)
-        ON DELETE SET NULL,
-    FOREIGN KEY (Bed_ID)
-        REFERENCES Bed (Bed_ID)
-        ON DELETE SET NULL,
     FOREIGN KEY (Doctor_ID)
         REFERENCES Doctor (Doctor_ID)
         ON DELETE SET NULL,

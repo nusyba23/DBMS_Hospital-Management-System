@@ -61,7 +61,8 @@
     echo "</table>";
 // DISPLAY Depatment Heads DONE
 
-// DISPLAY MY PATIENTS    
+// DISPLAY MY PATIENTS   
+
 include("database.php");
 $sql = "SELECT * FROM Patient 
         WHERE Patient_ID IN

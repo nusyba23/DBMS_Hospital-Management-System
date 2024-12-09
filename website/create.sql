@@ -82,10 +82,8 @@ CREATE TABLE Patient (
     L_name VARCHAR(20) NOT NULL,
     DOB DATE NOT NULL,
     Gender CHAR NOT NULL,
-    Room_ID INT,
     Doctor_ID INT,
     Nurse_ID INT,
-    Bed_ID INT,
     PRIMARY KEY (Patient_ID),
     FOREIGN KEY (Room_ID)
         REFERENCES Room (Room_ID)
@@ -99,6 +97,30 @@ CREATE TABLE Patient (
     FOREIGN KEY (Nurse_ID)
         REFERENCES Nurse (Nurse_ID)
         ON DELETE SET NULL
+);
+
+CREATE TABLE Patient_Bed (
+    Patient_ID INT,
+    Bed_ID INT,
+    PRIMARY KEY (Patient_ID, Bed_ID),
+    FOREIGN KEY (Patient_ID)
+        REFERENCES Patient (Patient_ID)
+        ON DELETE CASCADE,
+    FOREIGN KEY (Bed_ID)
+        REFERENCES Bed (Bed_ID)
+        ON DELETE CASCADE
+);
+
+CREATE TABLE Patient_Room (
+    Patient_ID INT,
+    Room_ID INT,
+    PRIMARY KEY (Patient_ID, Room_ID),
+    FOREIGN KEY (Patient_ID)
+        REFERENCES Patient (Patient_ID)
+        ON DELETE CASCADE,
+    FOREIGN KEY (Room_ID)
+        REFERENCES Room (Room_ID)
+        ON DELETE CASCADE
 );
 
 CREATE TABLE Medical_Record (

@@ -3,11 +3,14 @@
     
     $PID = $_SESSION["Patient_ID"];
     if($_SESSION["ID"]> 1999)
-        echo "<button class=\"table-button\" onclick=\"window.location.href = 'treatmentType.php'\">Add Treatment</button>";
+        echo "<button class=\"table-button\" onclick=\"window.location.href = 'treatmentType.php'\">Prescribe Treatment</button>";
     echo "<button class=\"table-button\" onclick=\"window.location.href = 'myTreatments.php'\">Treatments</button>";
     echo "<button class=\"table-button\" onclick=\"window.location.href = 'addImmunization.php'\">Add Immunization</button>";
     echo "<button class=\"table-button\" onclick=\"window.location.href = 'addAllergy.php'\">Add Allergy</button>";
     echo "<button class=\"table-button\" onclick=\"window.location.href = 'addMedication.php'\">Add Medication</button>";
+    echo "<button class=\"table-button\" onclick=\"window.location.href = 'assignBed.php'\">Assign Bed</button>";
+    echo "<button class=\"table-button\" onclick=\"window.location.href = 'addMedication.php'\">Assign Doctor</button>";
+    echo "<button class=\"table-button\" onclick=\"window.location.href = 'addMedication.php'\">Assign Nurse</button>";
     echo "<button class=\"table-button\" onclick=\"window.location.href = 'deletePatient.php'\">Delete Patient</button>";
     $results = array();
 

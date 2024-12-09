@@ -1,7 +1,16 @@
 <?php
     include("header.php");
 
-// DISPLAY Departments    
+    include("database.php");
+    $sql = "SELECT Name FROM Hospital
+            WHERE Hospital_ID = {$_SESSION["Hospital_ID"]}";
+    $result = mysqli_query($conn, $sql);
+    mysqli_close($conn);
+    $row = mysqli_fetch_assoc($result);
+    $Name = $row["Name"];
+    echo "<h1>{$Name}</h1>";
+
+    // DISPLAY Departments    
     include("database.php");
     $sql = "SELECT * FROM Department 
             WHERE Hospital_ID = {$_SESSION["Hospital_ID"]}";

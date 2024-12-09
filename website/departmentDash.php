@@ -8,12 +8,30 @@
             header("Location: roomDash.php"); 
         }
     }
-    //BUTTONS REDIRECT
-
-// DISPLAY Department_Heads    
     include("database.php");
-    $sql = "SELECT * FROM Department_Heads 
+    $sql = "SELECT Name FROM Hospital
+            WHERE Hospital_ID = {$_SESSION["Hospital_ID"]}";
+    $result = mysqli_query($conn, $sql);
+    mysqli_close($conn);
+    $row = mysqli_fetch_assoc($result);
+    $Name = $row["Name"];
+    echo "<h1>{$Name}</h1>";
+
+    include("database.php");
+    $sql = "SELECT Name FROM Department
             WHERE Department_ID = {$_SESSION["Department_ID"]}";
+    $result = mysqli_query($conn, $sql);
+    mysqli_close($conn);
+    $row = mysqli_fetch_assoc($result);
+    $Name = $row["Name"];
+    echo "<h1>{$Name}</h1>";
+
+    // DISPLAY Department_Heads    
+    include("database.php");
+    $sql = "SELECT L_name, F_name, Type FROM Doctor
+            WHERE Doctor_ID IN
+            (SELECT (Doctor_ID) FROM Department_Heads 
+            WHERE Department_ID = {$_SESSION["Department_ID"]})";
     $result = mysqli_query($conn, $sql);
     mysqli_close($conn);
     echo "<button class=\"table-button\" onclick=\"window.location.href = 'updateHeads.php'\">Update Head Doctor</button>";
@@ -46,9 +64,12 @@
 // DISPLAY MY PATIENTS    
 include("database.php");
 $sql = "SELECT * FROM Patient 
+        WHERE Patient_ID IN
+        (SELECT (Patient_ID)
+        FROM Patient_Room
         WHERE Room_ID IN
-                        (SELECT (Room_ID) FROM Room 
-                        WHERE Department_ID = {$_SESSION["Department_ID"]})";
+        (SELECT (Room_ID) FROM Room 
+        WHERE Department_ID = {$_SESSION["Department_ID"]}))";
 $result = mysqli_query($conn, $sql);
 mysqli_close($conn);
 

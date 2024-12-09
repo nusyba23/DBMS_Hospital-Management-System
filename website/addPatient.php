@@ -47,17 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="F" class="txt" >Female</option>
         </select><br>
 
-        <label for="doctor_id" class="txt">Assigned Doctor:</label>
-        <input type="number" class="text-input" name="doctor_id" required><br>
-
-        <label for="nurse_id" class="txt">Assigned Nurse:</label>
-        <input type="number" class="text-input" name="nurse_id" required><br>
-
-        <label for="room_id" class="txt">Room ID:</label>
-        <input type="number"  class="text-input" name="room_id" required><br>
-
-        <label for="bed_id" class="txt">Bed ID:</label>
-        <input type="number" class="text-input" name="bed_id" required><br>
+    
 
         <button type="submit" class="register-button">Add Patient</button>
 

@@ -100,9 +100,9 @@
     }
     echo "</table>";
 
-    $sql = "(SELECT D.Date, D.Time FROM Doctor_Administers AS D WHERE D.Treatment_ID = 4001)
+    $sql = "(SELECT D.Date, D.Time FROM Doctor_Administers AS D WHERE D.Treatment_ID = {$_SESSION['Treatment_ID']})
             UNION
-            (SELECT N.Date, N.Time FROM Nurse_Administers AS N WHERE N.Treatment_ID = 4001)";
+            (SELECT N.Date, N.Time FROM Nurse_Administers AS N WHERE N.Treatment_ID = {$_SESSION['Treatment_ID']})";
 
     include("database.php");
     $result = mysqli_query($conn, $sql);
